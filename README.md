@@ -41,7 +41,7 @@ Soy Manuela Ibáñez, estudiante de Estadística Aplicada en la
 Universidad Complutense de Madrid e impulsora de proyectos que combinan
 estadística, ciencia de datos y salud.
 
-Junto a Clara Ibáñez Valenzuela desarrollo **NDStats Analytics y N-OncoBC**,
+Desarrollo **NDStats Analytics y N-OncoBC**,
 una línea de trabajo que explora el análisis estadístico de datos clínicos
 y nutricionales en cáncer de mama. N-OncoBC plantea una aproximación
 individualizada y longitudinal para apoyar al equipo oncológico en la
