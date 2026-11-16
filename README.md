@@ -10,7 +10,7 @@
 
 La población cambia, las edades de los programas de cribado pueden variar y la participación no es igual en todos los territorios. Para planificar las pruebas y los recursos necesarios es útil explorar cómo podrían combinarse estos factores y qué información falta para tomar decisiones mejor fundamentadas.
 
-## Mi propuesta
+## Qué proponemos
 
 CRABI plantea una herramienta de apoyo a la planificación que permita comparar escenarios para las comunidades y ciudades autónomas de España. Su objetivo es explorar cómo podrían variar las necesidades de mamografías y, si hay datos suficientes, de pruebas posteriores, según la población, las reglas territoriales, el ritmo de invitación y la participación.
 
