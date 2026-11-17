@@ -16,20 +16,31 @@ CRABI explora esa pregunta desde la planificación sanitaria. La propuesta combi
 
 - Una base documentada de población y reglas territoriales.
 - Un motor de simulación que compara ritmos hipotéticos de invitación.
+- Un estudio contrafactual retrospectivo sobre la interrupción y recuperación del cribado durante la pandemia.
 - Una evaluación de las variables que más cambian las conclusiones.
 - Una línea de aprendizaje automático para estudiar la participación agregada, condicionada a la calidad y disponibilidad de datos y a su validación.
 
 El objetivo es apoyar a quienes planifican los programas, con resultados trazables e incertidumbre explícita. El proyecto no diagnostica ni predice tiempos de espera o beneficios clínicos.
 
+## Estudio contrafactual retrospectivo: qué habría pasado con otra planificación
+
+Esta será una línea central de CRABI: reconstruir la interrupción del cribado durante la pandemia y simular alternativas de recuperación. El caso permite estudiar una perturbación histórica concreta y traducirla a una pregunta de planificación: **cómo cambia la carga de mamografías cuando la actividad pendiente se recupera a ritmos distintos**.
+
+### Hipótesis de trabajo
+
+Manteniendo constante el volumen total de invitaciones pendientes, el calendario de recuperación modifica los picos de actividad y el tiempo necesario para volver al ritmo de referencia. Una recuperación más concentrada podría exigir mayor capacidad en menos periodos; una distribución más gradual podría reducir los picos, a costa de prolongar la recuperación. El análisis cuantificará esta compensación con escenarios, sin asumir de antemano cuál es preferible.
+
+### Diseño estadístico
+
+Se estimará una referencia de actividad a partir de las rondas previas a la pandemia y se comparará con la actividad observada. Después se simularán calendarios alternativos de recuperación y se variarán los supuestos de participación. El estimando principal será la diferencia entre actividad observada y esperada bajo cada escenario, expresada en invitaciones y mamografías por ronda o periodo; como resultados de planificación se describirán también los picos de demanda y la capacidad hipotética requerida para cumplir cada calendario.
+
+Como fuentes se consideran los indicadores agregados españoles de 2019–2020 y los datos abiertos de invitaciones del programa de Barcelona (2012–2021), sujetos a comprobar su disponibilidad, estructura, comparabilidad y condiciones de reutilización. La referencia y los parámetros se documentarán para que los resultados puedan reproducirse.
+
+La diferencia estimada será un **contrafactual condicionado al modelo**, no un efecto causal identificado experimentalmente. La pandemia coincidió con cambios en organización, composición de las invitadas y participación. Se explicitarán los supuestos de continuidad y se evaluará cuánto dependen las conclusiones de ellos. El alcance se limitará a actividad y carga temporal: no se inferirán capacidad o esperas reales, diagnósticos evitados ni mortalidad sin datos y validación adecuados.
+
 ## Datos y metodología
 
 Utilizamos o estamos investigando fuentes abiertas del INE, la Comunidad de Madrid, el Ministerio de Sanidad y la Red de Programas de Cribado. El detalle, sus usos y limitaciones se recoge en [Fuentes y metodología](FUENTES_Y_METODOLOGIA.md).
-
-### Extensión contrafactual retrospectiva
-
-Se propone estudiar la interrupción del cribado durante la pandemia y comparar calendarios hipotéticos de recuperación. La pregunta es cuánto habría variado el volumen de invitaciones y mamografías frente a una referencia de continuidad del patrón previo, y cómo se distribuiría la carga entre periodos bajo distintos ritmos de recuperación. Como anclajes se consideran los indicadores agregados españoles de 2019–2020 y los datos abiertos de invitaciones del programa de Barcelona (2012–2021), sujetos a comprobar su disponibilidad, estructura y condiciones de reutilización.
-
-El estimando será la diferencia entre actividad observada y actividad esperada bajo cada escenario, en invitaciones y mamografías por ronda o periodo. Se interpretará como **estimación contrafactual condicionada al modelo**, no como efecto causal identificado experimentalmente. La pandemia coincide con cambios de organización, composición de las invitadas y participación; se hará explícita la referencia temporal y se evaluará la sensibilidad a sus supuestos. El análisis se limitará a actividad y carga temporal: no inferirá capacidad o esperas reales, diagnósticos evitados ni mortalidad sin datos y validación adecuados.
 
 ## Estado actual
 
