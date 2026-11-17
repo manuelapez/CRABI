@@ -4,53 +4,41 @@
 
 **Simulación con datos abiertos e inteligencia artificial para planificar el cribado de cáncer de mama en España.**
 
-> Proyecto en fase de investigación y diseño para DATAMAD 2026.
+> Proyecto presentado a DATAMAD 2026. Investigación y prototipo en desarrollo.
 
-## El reto
+## La pregunta
 
-La población cambia, las edades de los programas de cribado pueden variar y la participación no es igual en todos los territorios. Para planificar las pruebas y los recursos necesarios es útil explorar cómo podrían combinarse estos factores y qué información falta para tomar decisiones mejor fundamentadas.
+¿Cómo podrían cambiar las necesidades de pruebas de cribado de cáncer de mama en cada territorio si cambian la población, las edades incluidas y la participación?
 
-## Qué proponemos
+CRABI explora esa pregunta desde la planificación sanitaria. La propuesta combina datos abiertos y escenarios para mostrar qué volúmenes de actividad podrían resultar de distintos supuestos y qué información adicional podría ayudar a tomar decisiones.
 
-CRABI plantea una herramienta de apoyo a la planificación que permita comparar escenarios para las comunidades y ciudades autónomas de España. Su objetivo es explorar cómo podrían variar las necesidades de mamografías y, si hay datos suficientes, de pruebas posteriores, según la población, las reglas territoriales, el ritmo de invitación y la participación.
+## Qué estamos desarrollando
 
-El proyecto estudiará qué supuestos cambian más los resultados y qué información adicional podría ser útil para comparar los planes. Madrid será un caso de estudio con uso efectivo de datos abiertos de la Comunidad de Madrid.
+- Una base documentada de población y reglas territoriales.
+- Un motor de simulación que compara ritmos hipotéticos de invitación.
+- Una evaluación de las variables que más cambian las conclusiones.
+- Una línea de aprendizaje automático para estudiar la participación agregada, condicionada a la calidad y disponibilidad de datos y a su validación.
 
-## Datos previstos
+El objetivo es apoyar a quienes planifican los programas, con resultados trazables e incertidumbre explícita. El proyecto no diagnostica ni predice tiempos de espera o beneficios clínicos.
 
-- [INE: proyecciones de población](https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736176953&idp=1254735572981&menu=resultados).
-- [Comunidad de Madrid: población censada por edad, nacionalidad y sexo](https://datos.comunidad.madrid/dataset/poblacion_censada_por_edad_nacionalidad_y_sexo).
-- [Red de Programas de Cribado de Cáncer: indicadores de mama](https://cribadocancer.es/indicadores-cancer-de-mama/).
-- [Ministerio de Sanidad: situación de los programas de cribado de mama](https://www.sanidad.gob.es/areas/promocionPrevencion/cribado/cribadoCancer/cancerMama/docs/informeDeSituacionCribadoCancerMama_2025.pdf).
+## Datos y metodología
 
-La disponibilidad, comparabilidad y condiciones de reutilización se revisarán para cada fuente. Los datos y reglas no cubren necesariamente todas las edades y territorios con el mismo detalle.
-
-## Inteligencia artificial y límites
-
-Investigaremos si los datos históricos permiten entrenar y validar un modelo que estime la participación **agregada**. Se utilizará únicamente si supera una evaluación frente a métodos sencillos; de lo contrario, se trabajará con escenarios explícitos.
-
-CRABI no pretende realizar diagnósticos individuales ni predecir tiempos de espera, ahorro o beneficios clínicos sin datos y validación suficientes. Las proyecciones serán escenarios sujetos a incertidumbre.
+Utilizamos o estamos investigando fuentes abiertas del INE, la Comunidad de Madrid, el Ministerio de Sanidad y la Red de Programas de Cribado. El detalle, sus usos y limitaciones se recoge en [Fuentes y metodología](FUENTES_Y_METODOLOGIA.md).
 
 ## Estado actual
 
-La propuesta se encuentra en fase de investigación y diseño. El simulador y el modelo de IA todavía no están terminados. Los próximos pasos son revisar las fuentes, contrastar las reglas territoriales y construir una primera prueba reproducible.
+Ya existe una primera demo local del motor de escenarios. Compara dos ritmos de invitación para 19 territorios, utilizando población provisional del INE y, cuando está disponible, participación histórica como supuesto. Los resultados son **exploratorios**, no predicciones operativas.
+
+Se ha realizado una primera prueba exploratoria de aprendizaje automático sobre una muestra pequeña. No ha superado la referencia sencilla en esa prueba y **no está integrada en la demo**. Para evaluar un modelo útil hacen falta más datos comparables y validación temporal.
+
+Consulta el [estado del proyecto](ESTADO_Y_PROXIMOS_PASOS.md) para conocer lo realizado y lo pendiente. El código y la demo se incorporarán al repositorio después de revisar los materiales y las condiciones de reutilización de las fuentes.
 
 ## Sobre la autora
 
-Soy Manuela Ibáñez, estudiante de Estadística Aplicada en la
-Universidad Complutense de Madrid e impulsora de proyectos que combinan
-estadística, ciencia de datos y salud.
+Soy Manuela Ibáñez Valenzuela, estudiante de Estadística Aplicada e impulsora de proyectos que combinan estadística, ciencia de datos y salud.
 
-Desarrollo **NDStats Analytics y N-OncoBC**,
-una línea de trabajo que explora el análisis estadístico de datos clínicos
-y nutricionales en cáncer de mama. N-OncoBC plantea una aproximación
-individualizada y longitudinal para apoyar al equipo oncológico en la
-interpretación de la trayectoria de cada paciente.
+Junto a Clara Ibáñez Valenzuela desarrollo **NDStats Analytics y N-OncoBC**, una línea de trabajo que explora el análisis estadístico de datos clínicos y nutricionales en cáncer de mama. N-OncoBC plantea una aproximación individualizada y longitudinal para apoyar la interpretación de la trayectoria de cada paciente.
 
-**CRABI continúa mi interés por aplicar los datos al cáncer de mama desde
-otra escala:** mientras N-OncoBC se centra en la información individual,
-CRABI explora cómo los datos poblacionales pueden apoyar la planificación
-futura del cribado.
+CRABI continúa mi interés por aplicar los datos al cáncer de mama desde otra escala: estudia cómo los datos poblacionales pueden apoyar la planificación futura del cribado.
 
-Puedes conocer más sobre nuestro trabajo en
-[NDStats Analytics](https://ndstatsanalytics.com).
+Más información: [NDStats Analytics](https://ndstatsanalytics.com).
