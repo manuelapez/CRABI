@@ -27,11 +27,11 @@ Utilizamos o estamos investigando fuentes abiertas del INE, la Comunidad de Madr
 
 ## Estado actual
 
-Ya existe una primera demo local del motor de escenarios. Compara dos ritmos de invitación para 19 territorios, utilizando población provisional del INE y, cuando está disponible, participación histórica como supuesto. Los resultados son **exploratorios**, no predicciones operativas.
+La **demo v0.2** ya está disponible en [`demo/`](demo/). Compara los rangos de edad 50–69 y 45–74, permite explorar supuestos de participación y muestra un límite anual hipotético. Usa población provisional del INE para 2026 y datos de población municipal de Madrid de 2025 como contexto. Sus resultados son escenarios exploratorios, no predicciones operativas ni recomendaciones.
 
-Se ha realizado una primera prueba exploratoria de aprendizaje automático sobre una muestra pequeña. No ha superado la referencia sencilla en esa prueba y **no está integrada en la demo**. Para evaluar un modelo útil hacen falta más datos comparables y validación temporal.
+La primera prueba exploratoria de aprendizaje automático no superó la referencia sencilla y **la IA no está integrada en la demo**. Se necesitarían más datos comparables y una validación temporal para evaluar otro modelo.
 
-Consulta el [estado del proyecto](ESTADO_Y_PROXIMOS_PASOS.md) para conocer lo realizado y lo pendiente. El código y la demo se incorporarán al repositorio después de revisar los materiales y las condiciones de reutilización de las fuentes.
+Consulta [la demo y sus límites](demo/README.md), [fuentes y metodología](FUENTES_Y_METODOLOGIA.md) y el [estado del proyecto](ESTADO_Y_PROXIMOS_PASOS.md).
 
 ## Sobre la autora
 

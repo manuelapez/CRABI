@@ -1,25 +1,32 @@
-# CRABI — primera demo (v0.1)
+# CRABI — segunda demo (v0.2)
 
-Esta es la **primera demo preliminar** de CRABI. Es una herramienta exploratoria y todavía no está validada para la toma de decisiones sanitarias.
+Esta es la segunda demo exploratoria de CRABI, preparada el 17 de noviembre de 2026. No está validada para tomar decisiones sanitarias.
 
-## Cómo abrirla
+## Cómo probarla
 
-Descarga `index.html` y ábrelo con Chrome, Edge o Firefox. Funciona directamente en el navegador, sin instalar nada ni conectarse a un servidor. La visualización del código de GitHub no ejecuta el HTML; para verlo como página hay que abrir el archivo descargado o configurar un alojamiento web.
+Descarga `index.html` y ábrelo en Chrome, Edge o Firefox. No necesita conexión ni servidor. GitHub muestra el código HTML; para ejecutarlo hay que abrir el archivo descargado o publicarlo en un servicio web.
 
-## Qué permite hacer
+## Novedades
 
-Seleccionar una de las 17 comunidades o dos ciudades autónomas, modificar supuestos de invitación, participación y valoraciones adicionales, y comparar dos distribuciones hipotéticas de la actividad durante tres periodos.
+- Comparación de edades 50–69 y 45–74 con población provisional por territorio al 1 de enero de 2026.
+- Rango de sensibilidad de la participación y límite anual hipotético introducido por la persona usuaria.
+- Avisos sobre tasa histórica ausente, supuestos por edades y datos que faltan.
+- Contexto de población municipal de la Comunidad de Madrid en 2025, con ambos rangos de edad.
 
-## Datos y advertencias
+## Fuentes y definiciones
 
-- Población: [INE, Estadística Continua de Población, tabla 59238](https://ine.es/jaxiT3/Tabla.htm?L=0&t=59238); mujeres residentes de 50–69 años al 1 de enero de 2026, datos provisionales, transformados y agregados por territorio.
-- Participación: [Red de Programas de Cribado de Cáncer, resultados 2023](https://cribadocancer.es/indicadores-cancer-de-mama/), tabla 2.3; tasas de 13 territorios utilizadas como supuestos, no como predicciones. Fuente: Red de Programas de Cribado de Cáncer, *Programas de Cribado de Cáncer de Mama. Informe de evaluación 2023* (datos: mayo de 2025). Los demás territorios usan un valor manual ilustrativo.
-- Contexto de Madrid: [Comunidad de Madrid, población censada por edad, nacionalidad y sexo](https://datos.comunidad.madrid/dataset/poblacion_censada_por_edad_nacionalidad_y_sexo), censo anual municipal 2025. El conjunto indica licencia [Creative Commons Attribution](https://creativecommons.org/licenses/by/4.0/). El valor mostrado es una suma propia de 179 municipios; no se mezcla con la población del INE de 2026.
+- [INE, Estadística Continua de Población, tabla 59238](https://ine.es/jaxiT3/Tabla.htm?L=0&t=59238): mujeres residentes por edad simple y comunidad, 1/1/2026, dato provisional. Se agrupan 45–49, 50–69 y 70–74. La población residente no es población elegible.
+- [Red de Programas de Cribado de Cáncer, informe de evaluación 2023](https://cribadocancer.es/indicadores-cancer-de-mama/): tasa de participación de mujeres invitadas de 50–69 años para 13 territorios. Red de Programas de Cribado de Cáncer, *Programas de Cribado de Cáncer de Mama. Informe de evaluación 2023* (datos: mayo de 2025). En los seis territorios sin tasa en el archivo del proyecto se introduce un supuesto manual ilustrativo. Si se seleccionan 45–74 años, aplicar la tasa 50–69 a las demás edades es únicamente un supuesto, no un dato observado.
+- [Comunidad de Madrid, población censada por edad, nacionalidad y sexo](https://datos.comunidad.madrid/dataset/poblacion_censada_por_edad_nacionalidad_y_sexo): censo municipal de 2025; el valor que se muestra es una suma propia de 179 municipios. La ficha señala [Creative Commons Attribution](https://creativecommons.org/licenses/by/4.0/). Las diferencias con el INE 2026 pueden depender de fecha, cobertura o definición; no se atribuyen a una causa.
 
-Los porcentajes de invitación y de valoración posterior son hipótesis modificables. La demo no utiliza proyecciones futuras ni mide elegibilidad, capacidad, esperas, costes o resultados clínicos. Los ritmos comparados son ilustrativos y no son calendarios ni recomendaciones oficiales.
+## Funcionamiento y límites
 
-**Inteligencia artificial:** en esta primera demo no se utiliza un modelo de IA. La línea de aprendizaje automático se encuentra en investigación y requiere más datos y validación.
+Se calcula población × fracción hipotética de invitación × tasa supuesta de participación. La cascada añade valoraciones posteriores como fracción hipotética de las mamografías. Dos repartos fijos distribuyen el mismo total en tres periodos: A 25/35/40 % y B 50/35/15 %. No equivalen a calendarios oficiales. A tendrá un pico menor por construcción, mientras B concentra más invitaciones en el primer periodo: estas salidas no establecen cuál es clínicamente mejor.
 
-## Versión y pruebas
+El límite anual es introducido por la persona usuaria y no es capacidad real ni estima esperas. Los rangos de sensibilidad no son probabilidades ni intervalos de confianza. El modelo no incorpora nuevas cohortes, rondas, exclusiones, movilidad, muertes ni reglas territoriales efectivas y no contiene proyecciones futuras.
 
-Primera demo v0.1, preparada el 17 de noviembre de 2026. El motor y los controles han superado pruebas automatizadas de cálculo; sigue pendiente la revisión visual independiente y la validación con profesionales. El HTML contiene el motor y los datos agregados necesarios para su funcionamiento.
+La IA no está integrada en esta versión. Se investigará si una serie histórica suficiente permite entrenar y evaluar un modelo; el primer experimento no superó la referencia sencilla y no constituye validación temporal.
+
+## Pruebas y estado
+
+El motor se comprobó en 162 combinaciones de extremos y la interfaz mediante pruebas automatizadas de los controles. No se ha completado la revisión visual independiente en navegador ni la validación con profesionales. La demo no es apta para decisiones clínicas o presupuestarias.
