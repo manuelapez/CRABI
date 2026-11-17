@@ -25,6 +25,12 @@ El objetivo es apoyar a quienes planifican los programas, con resultados trazabl
 
 Utilizamos o estamos investigando fuentes abiertas del INE, la Comunidad de Madrid, el Ministerio de Sanidad y la Red de Programas de Cribado. El detalle, sus usos y limitaciones se recoge en [Fuentes y metodología](FUENTES_Y_METODOLOGIA.md).
 
+### Extensión contrafactual retrospectiva
+
+Se propone estudiar la interrupción del cribado durante la pandemia y comparar calendarios hipotéticos de recuperación. La pregunta es cuánto habría variado el volumen de invitaciones y mamografías frente a una referencia de continuidad del patrón previo, y cómo se distribuiría la carga entre periodos bajo distintos ritmos de recuperación. Como anclajes se consideran los indicadores agregados españoles de 2019–2020 y los datos abiertos de invitaciones del programa de Barcelona (2012–2021), sujetos a comprobar su disponibilidad, estructura y condiciones de reutilización.
+
+El estimando será la diferencia entre actividad observada y actividad esperada bajo cada escenario, en invitaciones y mamografías por ronda o periodo. Se interpretará como **estimación contrafactual condicionada al modelo**, no como efecto causal identificado experimentalmente. La pandemia coincide con cambios de organización, composición de las invitadas y participación; se hará explícita la referencia temporal y se evaluará la sensibilidad a sus supuestos. El análisis se limitará a actividad y carga temporal: no inferirá capacidad o esperas reales, diagnósticos evitados ni mortalidad sin datos y validación adecuados.
+
 ## Estado actual
 
 La **demo v0.2** ya está disponible en [`demo/`](demo/). Compara los rangos de edad 50–69 y 45–74, permite explorar supuestos de participación y muestra un límite anual hipotético. Usa población provisional del INE para 2026 y datos de población municipal de Madrid de 2025 como contexto. Sus resultados son escenarios exploratorios, no predicciones operativas ni recomendaciones.
