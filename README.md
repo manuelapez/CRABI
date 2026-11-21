@@ -22,21 +22,13 @@ CRABI explora esa pregunta desde la planificación sanitaria. La propuesta combi
 
 El objetivo es apoyar a quienes planifican los programas, con resultados trazables e incertidumbre explícita. El proyecto no diagnostica ni predice tiempos de espera o beneficios clínicos.
 
-## Estudio contrafactual retrospectivo: qué habría pasado con otra planificación
+## Módulo contrafactual COVID: ritmos hipotéticos de recuperación
 
-Esta será una línea central de CRABI: reconstruir la interrupción del cribado durante la pandemia y simular alternativas de recuperación. El caso permite estudiar una perturbación histórica concreta y traducirla a una pregunta de planificación: **cómo cambia la carga de mamografías cuando la actividad pendiente se recupera a ritmos distintos**.
+El módulo explora una pregunta de planificación: **cómo cambia el pico de actividad al repartir un volumen hipotético en cuatro periodos graduales o dos concentrados**. Usa como proxy la diferencia de invitaciones de 2018 y 2020 en Barcelona (97.299 frente a 47.659; G = 49.640), según los informes ASPB. La brecha entre volúmenes no identifica mujeres únicas pendientes. ASPB informó que el cronograma se recuperó a finales de 2021; por tanto, CRABI no presenta un backlog actual ni reconstruye una deuda administrativa.
 
-### Hipótesis de trabajo
+La sensibilidad de mamografías aritméticamente esperadas utiliza participación observada de 48,4% (2021) y 52,6% (2020). No es un intervalo estadístico ni una respuesta validada de una cohorte no invitada. La comparación es descriptiva y condicionada a supuestos; no estima causalidad, capacidad disponible, esperas ni desenlaces clínicos.
 
-Manteniendo constante el volumen total de invitaciones pendientes, el calendario de recuperación modifica los picos de actividad y el tiempo necesario para volver al ritmo de referencia. Una recuperación más concentrada podría exigir mayor capacidad en menos periodos; una distribución más gradual podría reducir los picos, a costa de prolongar la recuperación. El análisis cuantificará esta compensación con escenarios, sin asumir de antemano cuál es preferible.
-
-### Diseño estadístico
-
-Se estimará una referencia de actividad a partir de las rondas previas a la pandemia y se comparará con la actividad observada. Después se simularán calendarios alternativos de recuperación y se variarán los supuestos de participación. El estimando principal será la diferencia entre actividad observada y esperada bajo cada escenario, expresada en invitaciones y mamografías por ronda o periodo; como resultados de planificación se describirán también los picos de demanda y la capacidad hipotética requerida para cumplir cada calendario.
-
-Como fuentes se consideran los indicadores agregados españoles de 2019–2020 y los datos abiertos de invitaciones del programa de Barcelona (2012–2021), sujetos a comprobar su disponibilidad, estructura, comparabilidad y condiciones de reutilización. La referencia y los parámetros se documentarán para que los resultados puedan reproducirse.
-
-La diferencia estimada será un **contrafactual condicionado al modelo**, no un efecto causal identificado experimentalmente. La pandemia coincidió con cambios en organización, composición de las invitadas y participación. Se explicitarán los supuestos de continuidad y se evaluará cuánto dependen las conclusiones de ellos. El alcance se limitará a actividad y carga temporal: no se inferirán capacidad o esperas reales, diagnósticos evitados ni mortalidad sin datos y validación adecuados.
+Abre el [simulador contrafactual](contrafactual/index.html) y consulta su [diseño, fórmulas, fuentes y limitaciones](contrafactual/README.md). El archivo de microdatos de invitaciones PSMAR 2012–2021 localizado en Harvard Dataverse figura como restringido y no se usa. La evidencia publicada ya estudia el impacto COVID en PSMAR; CRABI enfoca su aportación en la comparación transparente de ritmos hipotéticos con agregados públicos.
 
 ## Datos y metodología
 
@@ -44,7 +36,7 @@ Utilizamos o estamos investigando fuentes abiertas del INE, la Comunidad de Madr
 
 ## Estado actual
 
-La **demo v0.2** ya está disponible en [`demo/`](demo/). Compara los rangos de edad 50–69 y 45–74, permite explorar supuestos de participación y muestra un límite anual hipotético. Usa población provisional del INE para 2026 y datos de población municipal de Madrid de 2025 como contexto. Sus resultados son escenarios exploratorios, no predicciones operativas ni recomendaciones.
+La **demo v0.2** está disponible en [`demo/`](demo/). Compara los rangos de edad 50–69 y 45–74, permite explorar supuestos de participación y muestra un límite anual hipotético. Usa población provisional del INE para 2026 y datos de población municipal de Madrid de 2025 como contexto. Sus resultados son escenarios exploratorios, no predicciones operativas ni recomendaciones. El módulo COVID es una herramienta separada.
 
 La primera prueba exploratoria de aprendizaje automático no superó la referencia sencilla y **la IA no está integrada en la demo**. Se necesitarían más datos comparables y una validación temporal para evaluar otro modelo.
 
