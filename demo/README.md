@@ -1,5 +1,10 @@
 # CRABI — segunda demo (v0.2)
 
+## Actualización visual
+
+La interfaz adopta una dirección editorial basada en la referencia aprobada: fondo crema, tipografía sans serif de alto contraste y acentos en verde, amarillo, rosa y azul. Se conserva el motor, los datos, los controles y los límites metodológicos de v0.2. Esta actualización visual aún requiere una revisión final de la demo en navegador.
+
+
 Esta es la segunda demo exploratoria de CRABI, preparada el 17 de noviembre de 2026. No está validada para tomar decisiones sanitarias.
 
 ## Cómo probarla
