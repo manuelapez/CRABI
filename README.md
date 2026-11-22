@@ -10,6 +10,8 @@ La selección usa datos agregados del INE y del portal de datos abiertos de la C
 
 La demo es exploratoria: residentes no equivale a elegibles o invitadas; no estima capacidad, resultados clínicos ni efectos causales. La revisión externa humana y la validación clínica/operativa están pendientes.
 
+Para conocer la pregunta que aborda el proyecto, su planteamiento y sus límites, consulta la [presentación de CRABI](docs/PROYECTO_CRABI.md).
+
 ## Qué incluye
 
 - Simulador demográfico para escenarios 50–69 y 45–74.

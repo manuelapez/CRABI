@@ -1,6 +1,6 @@
 # Manifiesto de la selección demográfica CRABI
 
-**Corte:** 22/11/2026. Esta selección contiene 36 archivos para documentar y reproducir la demo demográfica CRABI v0.2. Las rutas siguientes son relativas a la raíz del repositorio.
+**Corte:** 22/11/2026. Esta selección contiene 37 archivos para documentar y reproducir la demo demográfica CRABI v0.2. Las rutas siguientes son relativas a la raíz del repositorio.
 
 ## Archivos incluidos
 
@@ -27,6 +27,7 @@
 - `demo/model.js`
 - `docs/AVANCES_CRABI_2026-11-22.md`
 - `docs/FUENTES_Y_METODOLOGIA.md`
+- `docs/PROYECTO_CRABI.md`
 - `docs/RESULTADOS_REPRODUCIBLES_DEMOGRAFIA.md`
 - `docs/VALIDACION_ROBUSTEZ_DEMOGRAFICA.md`
 - `resultados/robustez/age_range_comparison.svg`
