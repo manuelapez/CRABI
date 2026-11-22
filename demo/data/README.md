@@ -2,7 +2,7 @@
 
 ## INE ECP
 
-Los CSV `ine_ecp_2026_mujeres_40_79_edad.csv` y `population_2026-*.csv` contienen conteos agregados de mujeres residentes de la tabla 59238 por edad simple, fecha y territorio. La fecha de referencia principal es 1/10/2026 (provisional); se incluyen enero/julio y snapshots de julio anterior para trazabilidad de revisiones.
+Los CSV `ine_ecp_2026_mujeres_40_79_edad.csv` y `population_2026-*.csv` contienen conteos agregados de mujeres residentes de la tabla 59238 por edad simple, fecha y territorio. La fecha de referencia principal es 1/10/2026 (provisional); se incluyen enero/julio y snapshots de julio anterior para trazabilidad de revisiones. `build_demo_data.py` añade edades simples 40–79 por territorio al archivo de datos del navegador para poder sumar rangos publicados sin aproximar bandas parciales.
 
 **Atribución:** Elaboración propia con datos extraídos del sitio web del INE, Estadística Continua de Población, tabla 59238; descarga consultada el 22/11/2026. La licencia general de la información estadística del INE es CC BY 4.0 salvo indicación distinta. Fuente: [tabla 59238](https://www.ine.es/jaxiT3/Tabla.htm?L=0&t=59238), [ECP 1/10/2026](https://www.ine.es/dyngs/Prensa/ECP3T26.htm), [aviso legal y condiciones de reutilización](https://www.ine.es/aviso_legal/).
 

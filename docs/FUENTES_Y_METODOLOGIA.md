@@ -21,3 +21,11 @@ Las rejillas varían fracción invitada, participación, peso temporal y umbral 
 - **Dataverse PSMAR:** no se incluyen microdatos ni materiales restringidos.
 
 El proyecto no estima resultados clínicos, capacidad efectiva, listas de espera o causalidad.
+
+## Reglas territoriales de cribado
+
+La auditoría por territorio y el inventario de fuentes oficiales están en [`../VALIDACION_TERRITORIAL_CRABI.md`](../VALIDACION_TERRITORIAL_CRABI.md), [`../INVESTIGACION_TERRITORIAL_CRIBADO_ESPANA.md`](../INVESTIGACION_TERRITORIAL_CRIBADO_ESPANA.md) y [`../datos_territoriales/reglas_cribado_2026-11.csv`](../datos_territoriales/reglas_cribado_2026-11.csv). La lectura nacional se limita al marco general y a resultados agregados; no se usa para imputar edades o porcentajes a territorios individuales. Cada regla distingue fecha de fuente, vigencia, cohortes, anuncio y rango realmente utilizado.
+
+La tarjeta demográfica suma edades simples del INE de mujeres residentes dentro del rango habilitado en `edad_min_escenario`–`edad_max_escenario`. No consume el rango general de referencia ni las ampliaciones anunciadas. El conteo no es población elegible ni efectivamente invitada. Las exclusiones, invitaciones por cohorte, datos históricos y capacidad no están disponibles de modo comparable; si la vigencia no se confirmó, el panel muestra “Pendiente”. Las tasas de invitación y participación continúan siendo supuestos manuales. Illes Balears se marca con incertidumbre explícita por el desacuerdo entre una nota de octubre de 2026 y la ficha general anterior.
+
+No se redistribuyen documentos oficiales de terceros; se presentan hechos resumidos, atribución y enlaces para consulta. Las reglas deben revisarse con cada servicio de salud antes de usarlas fuera del prototipo. La inclusión de enlaces o de resúmenes no implica licencia open source de CRABI ni autorización para redistribuir otros materiales.

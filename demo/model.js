@@ -52,7 +52,29 @@ const CRABI2 = (() => {
     };
   }
 
-  return { calculate, sensitivity, plans };
+  function territorialPopulation(ageCounts, rule) {
+    if (!rule || rule.uso_escenario !== "si") return null;
+    if (!ageCounts || typeof ageCounts !== "object" || Array.isArray(ageCounts)) {
+      throw new TypeError("Los conteos demográficos deben ser un objeto por edad simple");
+    }
+    const min = Number(rule.edad_min_escenario);
+    const max = Number(rule.edad_max_escenario);
+    if (!Number.isInteger(min) || !Number.isInteger(max) || min > max) {
+      throw new RangeError("El rango territorial no es válido");
+    }
+    let total = 0;
+    for (let age = min; age <= max; age += 1) {
+      const count = ageCounts[String(age)];
+      if (!Number.isSafeInteger(count) || count < 0) {
+        throw new RangeError("Falta un conteo demográfico válido para la edad " + age);
+      }
+      total += count;
+      if (!Number.isSafeInteger(total)) throw new RangeError("La población territorial excede el rango seguro");
+    }
+    return total;
+  }
+
+  return { calculate, sensitivity, territorialPopulation, plans };
 })();
 
 if (typeof module !== "undefined" && module.exports) module.exports = CRABI2;
