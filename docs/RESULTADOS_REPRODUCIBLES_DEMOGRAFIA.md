@@ -20,6 +20,8 @@ python -m unittest discover -s tests -v
 
 El agregador toma el extracto INE reducido versionado; no usa la descarga completa durante el proceso. El script de robustez independiente agrega la fuente desde edades simples, recrea rejillas, contrasta el motor demográfico JavaScript y escribe únicamente salidas demográficas.
 
+El constructor de `demo/data.js` también incorpora las 40 edades simples disponibles por territorio y la matriz de reglas enlazadas a fuentes oficiales. Verifica 19 códigos territoriales y que cada fila demográfica tenga edades 40–79. La tarjeta territorial suma únicamente `edad_min_escenario`–`edad_max_escenario` si `uso_escenario=si`; no usa edades anunciadas. La auditoría está en [`../VALIDACION_TERRITORIAL_CRABI.md`](../VALIDACION_TERRITORIAL_CRABI.md), y la investigación en [`../INVESTIGACION_TERRITORIAL_CRIBADO_ESPANA.md`](../INVESTIGACION_TERRITORIAL_CRIBADO_ESPANA.md). Las pruebas territoriales confirman integridad de la matriz y conciliación de rangos 50–69 y 45–74 con los snapshots de octubre.
+
 ## Entradas y atribución
 
 Consulte [`demo/data/README.md`](../demo/data/README.md). SHA-256: extracto INE actual `dd82bf372ab762abf4b816218f0af79875d014cbef7a5b4e15db8a3d207ada96`; extracto previo de julio `b274d3b306ccc3d8e08cecb8ae63021cf157b7a35c7f6f33e3ee745538c309d4`; snapshot julio previo `163a284da00e72de1b41990a10ce04cc76b4e1ab2c89d9b7cdf1450995a5ec03`.

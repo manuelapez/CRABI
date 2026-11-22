@@ -74,6 +74,45 @@ test('embedded UI data matches the current official INE extract and allowed sour
   assert.match(html, /focus-visible/);
 });
 
+test('territorial model uses only validated current scenario ranges', () => {
+  const data = require('../demo/data.js');
+  const byCode = Object.fromEntries(data.territories.map((territory) => [territory.code, territory]));
+  const madrid = byCode['13'];
+  assert.equal(model.territorialPopulation(madrid.ageCounts, madrid.screeningRule), 1038983);
+
+  for (const code of ['01', '02', '15', '18']) {
+    const territory = byCode[code];
+    assert.equal(model.territorialPopulation(territory.ageCounts, territory.screeningRule), null);
+  }
+  assert.equal(model.territorialPopulation({ 50: 10 }, { uso_escenario: 'no', edad_min_escenario: '', edad_max_escenario: '' }), null);
+  assert.throws(() => model.territorialPopulation(null, madrid.screeningRule), /objeto por edad simple/);
+  const balear = byCode['04'].screeningRule;
+  assert.equal(balear.uso_escenario, 'si');
+  assert.equal(balear.edad_min_escenario, '45');
+  assert.equal(balear.edad_max_escenario, '74');
+});
+
+test('territorial range sums include both single-year endpoints and reject gaps', () => {
+  assert.equal(model.territorialPopulation(
+    { 48: 4, 49: 5, 50: 6 },
+    { uso_escenario: 'si', edad_min_escenario: '48', edad_max_escenario: '50' },
+  ), 15);
+  assert.throws(() => model.territorialPopulation(
+    { 48: 4, 50: 6 },
+    { uso_escenario: 'si', edad_min_escenario: '48', edad_max_escenario: '50' },
+  ), /Falta un conteo demográfico válido/);
+});
+
+test('territorial interface exposes documentary dates, cadence, cohorts and announcements', () => {
+  const js = fs.readFileSync(path.join(__dirname, '../demo/territorial.js'), 'utf8');
+  assert.match(js, /Fuente publicada:/);
+  assert.match(js, /vigencia:/);
+  assert.match(js, /Periodicidad documentada/);
+  assert.match(js, /Cohortes confirmadas:/);
+  assert.match(js, /Ampliación anunciada:/);
+  assert.match(js, /No se calcula porque no hay rango vigente suficientemente confirmado/);
+});
+
 test('core style palette meets WCAG AA text contrast for key combinations', () => {
   const luminance = (hex) => {
     const rgb = hex.match(/[\da-f]{2}/gi).map(x => parseInt(x, 16) / 255).map(x => x <= 0.04045 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4);
