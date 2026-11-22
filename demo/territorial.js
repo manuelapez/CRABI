@@ -1,8 +1,10 @@
 "use strict";
 
 (() => {
-  const data = CRABI_DATA;
   const select = document.getElementById("region");
+  // The main simulator populates the selector before this script runs.
+  if (!select?.value) return;
+  const data = CRABI_DATA;
   const host = document.querySelector(".main");
   const fmt = (n) => new Intl.NumberFormat("es-ES", { maximumFractionDigits: 0 }).format(n);
   const panel = document.createElement("section");
@@ -83,4 +85,5 @@
   document.getElementById("territorialInvitation").addEventListener("input", draw);
   document.getElementById("territorialParticipation").addEventListener("input", draw);
   draw();
+  document.getElementById("startupNotice").hidden = true;
 })();

@@ -1,6 +1,12 @@
 # Demo demográfica CRABI v0.2
 
-Abre `index.html` en un navegador moderno. Mantén juntos `index.html`, `model.js` y `data.js`.
+## Abrir la demo en Windows
+
+1. Si tienes un ZIP, haz clic derecho sobre él y selecciona **Extraer todo**.
+2. Abre la carpeta extraída, entra en `demo` y haz doble clic en `index.html`. Si se abre en un editor, usa **Abrir con** y elige tu navegador.
+3. Elige un territorio o cambia la participación. La tabla y las cifras se actualizan automáticamente.
+
+Para abrirla directamente basta con un navegador con JavaScript activado. Si aparece el aviso de carga, comprueba que `model.js`, `data.js` y `territorial.js` estén en la misma carpeta que `index.html`. Si solo descargaste el HTML, descarga el ZIP del proyecto y extráelo completo.
 
 El motor multiplica población residente por una fracción hipotética invitada, participación supuesta y seguimiento supuesto. Distribuye los mismos totales entre tres periodos ilustrativos (A 25/35/40%; B 50/35/15%). Los periodos no son fechas ni rondas oficiales. El umbral por periodo lo elige quien usa la demo y no representa capacidad.
 
