@@ -1,0 +1,8 @@
+﻿riesgo,evidencia_actual,impacto_potencial,control_aplicado,responsable_de_cierre,estado_o_siguiente_paso
+Red 2023 V2,Permiso/versión del CSV derivado no verificados,Redistribución de datos sin derechos confirmados,CSV y tasas retirados; valor manual marcado como supuesto,Responsable de permisos / Red,Bloqueado hasta autorización expresa
+Denominador operativo,"INE mide residentes, no elegibles o invitadas",Inflación o clasificación errónea del volumen objetivo,Etiquetas y documentación delimitan población residente,Programa autonómico / datos sanitarios,Solicitar denominadores homologados
+Reglas territoriales,Informe estatal anonimiza reglas por CCAA,Atribuir edad/exclusión equivocada a territorio,Plantilla sin imputaciones; no generar regla sintética,Cada programa autonómico,Completar solo con fuente territorial
+Capacidad,Actividad histórica no es máxima operativa,Falsa alerta o falsa tranquilidad de capacidad,No parametrizar umbrales con productividad media,Planificación y centros,Conseguir agendas/cupos y plantilla por periodo
+Contrafactual causal,Dos volúmenes anuales y escenarios no identifican efectos,Afirmaciones causales o backlog inexistente,Conservar módulo descriptivo; declarar no identificación,Epidemiología / custodio de datos,Microdatos longitudinales y protocolo causal
+UI y accesibilidad,Sin ejecución de navegador ni pruebas AT reales,Barreras de uso no detectadas,"Pruebas estáticas, labels, live status y foco; headless falló",QA y usuarias con AT,Validar Chromium/Firefox y lector de pantalla
+Validación externa,Sin dictámenes de profesionales independientes,Errores de interpretación o aplicabilidad,Protocolo y ficha listos; ninguna validación declarada,Revisores independientes,Recabar y resolver dictámenes

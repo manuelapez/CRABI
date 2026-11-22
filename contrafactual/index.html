@@ -14,7 +14,7 @@
     .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:18px 0}.card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 4px 18px #1a34400a}
     .inputs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.field label{display:block;font-size:.88rem;font-weight:700;margin-bottom:5px}.field input{width:100%;padding:10px 11px;border:1px solid #aebfc7;border-radius:8px;font:inherit;color:var(--ink)}.hint{display:block;font-size:.77rem;color:var(--muted);margin-top:4px}
     .plans{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.plan{border-top:5px solid var(--teal)}.plan.b{border-color:var(--blue)}.metric{display:flex;justify-content:space-between;gap:16px;border-top:1px solid var(--line);padding:9px 0}.metric span{color:var(--muted)}.metric strong{text-align:right;font-variant-numeric:tabular-nums}
-    .periods{display:flex;gap:7px;margin:13px 0}.period{flex:1;text-align:center;background:#e7f2f3;border-radius:8px;padding:9px 5px;font-size:.83rem}.b .period{background:#eef0fa}.period b{display:block;font-size:1rem}
+    .periods{display:flex;gap:7px;margin:13px 0}.period{flex:1;text-align:center;background:#e7f2f3;border-radius:8px;padding:9px 5px;font-size:.83rem}.b .period{background:#eef0fa}.period b{display:block;font-size:1rem}input:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
     .result{font-size:2rem;font-weight:800;letter-spacing:-.04em}.sources{font-size:.9rem;color:var(--muted)}a{color:#075f79}footer{border-top:1px solid var(--line);margin-top:28px;padding-top:18px;color:var(--muted);font-size:.88rem}
     @media(max-width:700px){.grid,.plans{grid-template-columns:1fr}.inputs{grid-template-columns:1fr 1fr}main{padding:26px 16px 48px}}
     @media(max-width:390px){.inputs{grid-template-columns:1fr}}
@@ -30,17 +30,18 @@
 
   <section class="grid" aria-label="Datos y supuestos">
     <div class="card"><h2>Volúmenes publicados por ASPB</h2><div class="inputs">
-      <div class="field"><label for="reference">Invitaciones en 2018</label><input id="reference" type="number" min="0" step="1" value="97299"><span class="hint">ABS comparables con 2020</span></div>
-      <div class="field"><label for="observed">Invitaciones en 2020</label><input id="observed" type="number" min="0" step="1" value="47659"><span class="hint">Año de interrupción</span></div>
+      <div class="field"><label for="reference">Invitaciones en 2018</label><input id="reference" type="number" min="0" step="1" required value="97299"><span class="hint">ABS comparables con 2020</span></div>
+      <div class="field"><label for="observed">Invitaciones en 2020</label><input id="observed" type="number" min="0" step="1" required value="47659"><span class="hint">Año de interrupción</span></div>
     </div></div>
     <div class="card"><h2>Banda de participación</h2><div class="inputs">
-      <div class="field"><label for="low">Escenario bajo (%)</label><input id="low" type="number" min="0" max="100" step="0.1" value="48.4"><span class="hint">Observada en 2021</span></div>
-      <div class="field"><label for="high">Escenario alto (%)</label><input id="high" type="number" min="0" max="100" step="0.1" value="52.6"><span class="hint">Observada en 2020</span></div>
+      <div class="field"><label for="low">Escenario bajo (%)</label><input id="low" type="number" min="0" max="100" step="0.1" required value="48.4"><span class="hint">Observada en 2021</span></div>
+      <div class="field"><label for="high">Escenario alto (%)</label><input id="high" type="number" min="0" max="100" step="0.1" required value="52.6"><span class="hint">Observada en 2020</span></div>
     </div></div>
   </section>
 
+  <p id="inputError" class="notice" role="alert" hidden></p>
   <section class="card" aria-live="polite" aria-atomic="true">
-    <h2>Brecha proxy usada en ambos escenarios</h2><div class="result" id="gap">49.640 invitaciones</div>
+    <h2>Brecha proxy usada en ambos escenarios</h2><div class="result" id="gap">49.640 invitaciones</div><p class="sources" id="gapNote">La diferencia es un proxy agregado y no representa personas pendientes.</p>
     <p class="sources" id="expected">Si todo ese volumen se resolviera con la banda elegida, equivaldría a 24.026–26.111 mamografías aritméticas esperadas. No son pruebas pendientes observadas.</p>
   </section>
 
@@ -57,23 +58,56 @@
 </main>
 <script>
   const fmt = new Intl.NumberFormat('es-ES');
+  const fields = ['reference','observed','low','high'];
   const num = id => Number(document.getElementById(id).value);
   const rounded = value => Math.round(value);
+  const distribute = (total, periods) => {
+    const each = Math.floor(total / periods), remainder = total % periods;
+    return Array.from({length: periods}, (_,i) => each + (i < remainder ? 1 : 0));
+  };
   function update(){
-    const reference=Math.max(0,num('reference')), observed=Math.max(0,num('observed'));
-    let low=Math.min(100,Math.max(0,num('low')))/100, high=Math.min(100,Math.max(0,num('high')))/100;
-    if(low>high)[low,high]=[high,low];
-    const gap=Math.max(0,reference-observed), a=gap/4, b=gap/2;
-    document.getElementById('gap').textContent=fmt.format(rounded(gap))+' invitaciones';
-    document.getElementById('expected').textContent=`Si todo ese volumen se resolviera con la banda elegida, equivaldría a ${fmt.format(rounded(gap*low))}–${fmt.format(rounded(gap*high))} mamografías aritméticas esperadas. No son pruebas pendientes observadas.`;
-    document.getElementById('periodsA').innerHTML=Array.from({length:4},(_,i)=>`<div class="period">Periodo ${i+1}<b>${fmt.format(rounded(a))}</b></div>`).join('');
-    document.getElementById('periodsB').innerHTML=Array.from({length:4},(_,i)=>`<div class="period">Periodo ${i+1}<b>${fmt.format(rounded(i<2?b:0))}</b></div>`).join('');
-    document.getElementById('peakA').textContent=fmt.format(rounded(a)); document.getElementById('peakB').textContent=fmt.format(rounded(b));
-    document.getElementById('mammosA').textContent=`${fmt.format(rounded(a*low))}–${fmt.format(rounded(a*high))}`;
-    document.getElementById('mammosB').textContent=`${fmt.format(rounded(b*low))}–${fmt.format(rounded(b*high))}`;
-    document.getElementById('tradeoff').textContent=`Con estos valores, el plan concentrado sube el pico en ${fmt.format(rounded(b-a))} invitaciones por periodo frente al gradual y reparte el mismo total dos periodos antes. La diferencia de mamografías esperadas en el pico es ${fmt.format(rounded((b-a)*low))}–${fmt.format(rounded((b-a)*high))}; depende solo de la banda de participación seleccionada.`;
+    const error=document.getElementById('inputError');
+    const refText=document.getElementById('reference').value.trim();
+    const obsText=document.getElementById('observed').value.trim();
+    const loText=document.getElementById('low').value.trim();
+    const hiText=document.getElementById('high').value.trim();
+    const reference=num('reference'), observed=num('observed');
+    const low=num('low'), high=num('high');
+    const invalidCounts=!refText || !obsText || !Number.isSafeInteger(reference) || !Number.isSafeInteger(observed) || reference<0 || observed<0;
+    const invalidRates=!loText || !hiText || !Number.isFinite(low) || !Number.isFinite(high) || low<0 || high>100 || low>high;
+    if(invalidCounts || invalidRates){
+      error.hidden=false;
+      error.textContent=invalidCounts ? 'Introduce invitaciones publicadas como enteros no negativos.' : 'Introduce porcentajes entre 0 y 100; el mínimo no puede superar al máximo.';
+      document.getElementById('gap').textContent='Revisa los datos';
+      document.getElementById('expected').textContent='Corrige los campos para recalcular los escenarios.';
+      document.getElementById('tradeoff').textContent='';
+      ['periodsA','periodsB','peakA','peakB','mammosA','mammosB'].forEach(id=>document.getElementById(id).textContent='—');
+      return;
+    }
+    error.hidden=true;
+    const difference=reference-observed, gap=Math.max(0,difference);
+    const lo=low/100, hi=high/100;
+    const planA=distribute(gap,4), planB=[...distribute(gap,2),0,0];
+    document.getElementById('gap').textContent=fmt.format(gap)+' invitaciones';
+    document.getElementById('gapNote').textContent=difference<0
+      ? '2020 supera a la referencia introducida; el simulador limita la brecha positiva a cero.'
+      : 'La diferencia entre volúmenes es un proxy agregado, no una lista de personas pendientes.';
+    document.getElementById('expected').textContent=gap===0
+      ? 'No hay brecha positiva en estos valores; no se calculan mamografías adicionales.'
+      : `Si todo ese volumen hipotético se resolviera con la banda elegida, equivaldría a ${fmt.format(rounded(gap*lo))}–${fmt.format(rounded(gap*hi))} mamografías aritméticas esperadas. No son pruebas pendientes observadas.`;
+    document.getElementById('periodsA').innerHTML=planA.map((n,i)=>`<div class="period">Periodo ${i+1}<b>${fmt.format(n)}</b></div>`).join('');
+    document.getElementById('periodsB').innerHTML=planB.map((n,i)=>`<div class="period">Periodo ${i+1}<b>${fmt.format(n)}</b></div>`).join('');
+    const peakA=Math.max(...planA), peakB=Math.max(...planB), peakDifference=peakB-peakA;
+    document.getElementById('peakA').textContent=fmt.format(peakA);
+    document.getElementById('peakB').textContent=fmt.format(peakB);
+    document.getElementById('mammosA').textContent=`${fmt.format(rounded(peakA*lo))}–${fmt.format(rounded(peakA*hi))}`;
+    document.getElementById('mammosB').textContent=`${fmt.format(rounded(peakB*lo))}–${fmt.format(rounded(peakB*hi))}`;
+    document.getElementById('tradeoff').textContent=gap===0
+      ? 'Sin una brecha positiva, ambos planes distribuyen cero invitaciones y no se comparan tiempos de recuperación.'
+      : `El plan concentrado eleva el pico en ${fmt.format(peakDifference)} invitaciones por periodo frente al gradual y reparte el mismo total dos periodos antes. La diferencia de mamografías esperadas en el pico es ${fmt.format(rounded(peakDifference*lo))}–${fmt.format(rounded(peakDifference*hi))}; depende solo de la banda seleccionada.`;
   }
-  document.querySelectorAll('input').forEach(input=>input.addEventListener('input',update)); update();
+  fields.forEach(id=>document.getElementById(id).addEventListener('input',update));
+  update();
 </script>
 </body>
 </html>

@@ -1,30 +1,25 @@
-# Estado y próximos pasos
+# Estado y próximos pasos de CRABI
 
-**Actualización: 21 de noviembre de 2026.**
+**Actualización:** 22 de noviembre de 2026 · **Rama de trabajo:** `audit/integral-crabi-2026-11`.
 
-## Realizado
+## Estado comprobable
 
-- Definición del problema y diseño de la investigación.
-- Procesamiento preliminar de población por edad y territorio.
-- Primera demo v0.1 reemplazada en la carpeta local del repositorio por la demo v0.2; el README principal ya describe la versión actual.
-- La v0.2 compara rangos 50–69 y 45–74, supuestos de participación y un límite anual hipotético. Es exploratoria y no está validada para decisiones sanitarias.
-- Comprobaciones del motor y de parte de la transcripción de indicadores de 2023.
-- Experimento exploratorio de regresión sobre diez territorios con datos de 2021 y 2023, separado de la demo y sin validación temporal futura.
-- Contrafactual retrospectivo COVID convertido en un simulador separado: proxy de diferencia agregada Barcelona 2018/2020 (49.640 invitaciones), ritmos hipotéticos de 2 y 4 periodos y banda de sensibilidad derivada de participación observada 2020/2021.
-- Documentación metodológica corregida para reflejar que ASPB declaró recuperado el cronograma a finales de 2021; no se denomina la brecha “backlog”. El microdato PSMAR localizado requiere solicitud de acceso y no se utiliza.
-- Barra de progreso verificable del prototipo: 90% del alcance de investigación/prototipo documentado en [`DESARROLLO_90_PORCIENTO.md`](DESARROLLO_90_PORCIENTO.md). El 10% de ese alcance queda para revisión del nuevo módulo; validación operativa es una dependencia externa fuera del alcance porcentual.
+- La demo demográfica v0.2 incluye el rediseño visual aprobado, el motor en un archivo separado y una instantánea de población INE por edad/CCAA al 1 de octubre de 2026.
+- Los 19 totales territoriales agregados coinciden con el total nacional para 45–49, 50–69 y 70–74. Son cifras provisionales de residentes, no elegibilidad.
+- La tabla derivada de participación Red 2023 se retiró hasta verificar permiso de redistribución; la demo conserva solo el supuesto manual editable del 60%.
+- La opción completa 45–74 se documenta como escenario que ignora la implementación gradual aprobada; no se afirma que represente el calendario efectivo de cada comunidad.
+- El umbral de capacidad cambió de “anual” a “por periodo”, que es la unidad con la que se calcula. Continúa siendo un supuesto sin capacidad observada.
+- El contrafactual COVID distingue la diferencia agregada de invitaciones de un atraso de mujeres real; mantiene la recuperación del calendario reportada por ASPB en 2021.
+- Se creó `AUDITORIA_INTEGRAL_CRABI.md` y `RESOLUCION_RIESGOS_Y_DEPENDENCIAS.md`, junto con plantilla territorial y paquete para revisión experta.
 
 ## Pendiente
 
-- Descargar y contrastar las proyecciones de población del INE.
-- Ampliar y revisar el histórico de participación y su comparabilidad territorial.
-- Contrastar reglas, cohortes, rondas y fecha efectiva de invitación.
-- Evaluar el modelo de IA frente a referencias simples con cortes temporales y datos suficientes.
-- Revisar los cambios en GitHub Desktop y, cuando estén aprobados, hacer commit y push para actualizar el repositorio remoto.
-- Obtener revisión experta de la utilidad y las limitaciones del prototipo.
-- Revisión visual del nuevo [`simulador contrafactual`](contrafactual/index.html); la demo demográfica v0.2 se conserva separada.
-- No interpretar la diferencia 2018/2020 como población pendiente. Para modelar pendientes reales se necesitan registros administrativos por cohorte/fecha y reglas de elegibilidad.
+- Revisión visual real en navegadores/tecnologías de asistencia y dictámenes externos de profesionales de cribado, epidemiología y planificación sanitaria.
+- Obtener reglas territoriales identificadas de edad, periodicidad, exclusiones y denominadores elegibles/invitados; el informe nacional no asigna sus resultados a cada CCAA.
+- Confirmar por escrito las condiciones de redistribución de la tabla Red 2023 V2 antes de volver a incluir tasas derivadas.
+- Identificar elegibilidad, rondas, cohortes, invitaciones, capacidad/cupos y calendarios efectivos por territorio para escenarios operativos.
+- No se estiman resultados clínicos, colas, tiempos de espera, costes ni efectos causales.
 
-## Lo que no se ha demostrado
+## Pruebas ejecutadas
 
-Todavía no se han estimado tiempos de espera, costes reales, casos de cáncer evitados ni capacidad hospitalaria disponible. Las cifras de escenarios no deben interpretarse como predicciones o recomendaciones clínicas.
+`node --test tests/demo-model.test.cjs tests/contrafactual-ui.test.cjs` cubre planes, sensibilidad, rangos inválidos, conservación, datos embebidos, labels/IDs y contraste de color; `python -m unittest discover -s tests -v` cubre agregación y reproducción de fuentes. La cobertura técnica no es validación estadística ni científica externa.

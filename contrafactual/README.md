@@ -1,6 +1,6 @@
 # Contrafactual COVID — documentación del módulo
 
-**Estado:** prototipo funcional para revisión · **Actualizado:** 21/11/2026
+**Estado:** prototipo funcional para revisión · **Actualizado:** 22/11/2026
 
 ## Pregunta
 
@@ -28,6 +28,7 @@ Los valores transcritos, alcance por año y notas de comparabilidad están en [`
 
 - La comparación 2018/2020 no ajusta población, elegibilidad, migración, exclusiones, calendario por cohorte ni otros cambios concurrentes.
 - Los periodos y pesos son decisiones ilustrativas. No modelan calendario oficial ni límites reales de capacidad.
+- La interfaz valida campos vacíos/inválidos y no intercambia silenciosamente una banda de participación invertida. Si los valores producen una diferencia negativa, indica que la brecha positiva se fija en cero. Las invitaciones repartidas usan enteros con resto asignado al inicio, de modo que el total visible se conserva exactamente.
 - No estima colas, tiempo de espera, pérdidas de seguimiento, pruebas diagnósticas, cánceres, costes, mortalidad o causalidad.
 - Barcelona no calibra directamente la demo de Madrid ni el conjunto de España.
 

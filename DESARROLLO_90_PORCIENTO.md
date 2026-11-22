@@ -1,25 +1,21 @@
-# Avance verificable del prototipo CRABI
+# Alcance y estado del prototipo CRABI
 
-**Corte:** 21 de noviembre de 2026 · **Alcance del porcentaje:** desarrollo de un prototipo de investigación y planificación para revisión, no validación ni despliegue sanitario.
+**Revisión actualizada:** 22 de noviembre de 2026.
 
-## Barra de progreso
+## Corrección del porcentaje previo
 
-| Entregable | Peso | Estado verificable |
-|---|---:|---|
-| Pregunta, alcance y estimando documentados | 15% | Completo: brecha proxy definida sin llamarla backlog real. |
-| Evidencia pública, procedencia y calidad de datos | 20% | Completo para el prototipo: valores ASPB trazados a informes y acceso restringido a microdatos documentado. |
-| Diseño, fórmulas, supuestos y límites | 20% | Completo y reproducible en la documentación del módulo. |
-| Simulador funcional y cálculos por escenario | 20% | Implementado en `contrafactual/index.html`; entradas editables, dos planes, picos y sensibilidad. |
-| Integración y alineación documental | 15% | README, fuentes y estado del repositorio actualizados; el módulo está separado de la demo v0.2 ya revisada. La memoria y el stack del espacio DATAMAD también están actualizados localmente. |
-| Revisión visual del nuevo módulo y revisión experta independiente | 10% | Pendiente; no se cuenta como terminado. |
-| **Total alcanzado en el alcance definido** | **90%** | Los primeros cinco entregables suman 90 puntos ponderados. |
+La versión anterior asignaba pesos subjetivos a cinco entregables para declarar “90%”. No era un estándar externo ni una medida validada de progreso del proyecto completo; además mezclaba prototipo con revisión y validación. Se retira esa cifra como indicador científico. El nombre histórico de este archivo se conserva para no romper enlaces internos.
 
-El 90% significa que el módulo de prototipo está especificado, implementado y documentado con evidencia pública verificable. **No significa 90% de una herramienta validada para decisiones clínicas o de capacidad.** El 10% pendiente es revisión del nuevo módulo; validar el uso operativo requeriría además colaboración y datos administrativos no disponibles, por lo que se registra como dependencia externa y no se oculta dentro del porcentaje.
+## Estado verificable por componente
 
-## Dependencias visibles
+| Componente | Estado | Evidencia / límite |
+|---|---|---|
+| Demo demográfica v0.2 | Implementada; revisión metodológica y visual del último corte pendiente | Simulación aritmética editable. Residentes INE 01/07/2026; no identifica elegibles ni calendario local. |
+| Motor numérico | Implementado y separado para pruebas | Planes A/B conservan el mismo total; coeficientes de tres periodos son ilustrativos. |
+| Datos INE por edad y territorio | Extracción y agregación reproducibles en el repositorio | 19 CCAA/ciudades, sumas por banda contrastadas con los totales nacionales del corte. Datos provisionales. |
+| Tasas Red 2023 | 13 tasas observadas importadas, 6 ausencias explícitas | La tasa es de 50–69 y no valida 2026 ni edades 45–49/70–74. |
+| Contexto de expansión 45–74 | Documentado con política estatal aprobada como proyecto de implementación gradual | La demo simula rango completo; no la implantación escalonada autonómica. |
+| Contrafactual COVID Barcelona | Simulador descriptivo terminado como ejercicio | G=49.640 es una diferencia agregada de invitaciones, no personas pendientes ni un efecto causal. ASPB informa recuperación del calendario en 2021. |
+| Revisión externa/operativa | Pendiente | Faltan revisión por especialistas, datos de elegibilidad/capacidad y contraste de calendarios territoriales. |
 
-- Revisión visual del módulo COVID por la usuaria (siguiente paso de revisión).
-- Revisión metodológica por una persona experta en cribado/planificación sanitaria.
-- Cualquier afirmación sobre pendientes reales necesita datos administrativos agregados por cohorte y fecha; los microdatos PSMAR localizados son restringidos.
-- Un escenario operativo requeriría capacidad/cupos, reglas vigentes y calendario oficial. No se han proporcionado.
-- La actualización del repositorio remoto no se ha verificado en esta sesión.
+No se asigna un porcentaje único a estados tan distintos. Un prototipo funcional no implica validez estadística, científica, externa u operativa. Consulta [`AUDITORIA_INTEGRAL_CRABI.md`](AUDITORIA_INTEGRAL_CRABI.md) para hallazgos, correcciones y pruebas.

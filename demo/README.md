@@ -1,37 +1,44 @@
-# CRABI — segunda demo (v0.2)
+# CRABI — demo demográfica v0.2
 
-## Actualización visual
+**Corte de auditoría:** 22 de noviembre de 2026 · **Estado:** prototipo exploratorio, sin validación clínica u operativa.
 
-La interfaz adopta una dirección editorial basada en la referencia aprobada: fondo crema, tipografía sans serif de alto contraste y acentos en verde, amarillo, rosa y azul. Se conserva el motor, los datos, los controles y los límites metodológicos de v0.2. Esta actualización visual aún requiere una revisión final de la demo en navegador.
+## Abrir y ejecutar
 
+Abre `index.html` en un navegador moderno. No necesita servidor ni conexión. Para conservar datos y comportamiento, mantén juntos `index.html`, `model.js` y `data.js`. El conjunto de datos fuente, agregados, generadores y atribución están en [`data/`](data/README.md).
 
-Esta es la segunda demo exploratoria de CRABI, preparada el 17 de noviembre de 2026. No está validada para tomar decisiones sanitarias.
+## Qué calcula
 
-## Cómo probarla
+Para una población residente congelada `P`, fracción supuesta de invitación `f`, tasa supuesta de participación `s` y proporción supuesta de valoraciones posteriores `d`:
 
-Descarga `index.html` y ábrelo en Chrome, Edge o Firefox. No necesita conexión ni servidor. GitHub muestra el código HTML; para ejecutarlo hay que abrir el archivo descargado o publicarlo en un servicio web.
+- Invitaciones hipotéticas = `P × f`.
+- Mamografías aritméticas esperadas = `P × f × s`.
+- Valoraciones posteriores hipotéticas = `P × f × s × d`.
 
-## Novedades
+Los planes distribuyen un total idéntico en tres periodos: A = 25/35/40% y B = 50/35/15%. Los periodos no tienen fechas y no representan rondas bienales oficiales. El umbral opcional se aplica a mamografías por periodo, no a un año observado, y no representa capacidad sanitaria.
 
-- Comparación de edades 50–69 y 45–74 con población provisional por territorio al 1 de enero de 2026.
-- Rango de sensibilidad de la participación y límite anual hipotético introducido por la persona usuaria.
-- Avisos sobre tasa histórica ausente, supuestos por edades y datos que faltan.
-- Contexto de población municipal de la Comunidad de Madrid en 2025, con ambos rangos de edad.
+## Población y edad
 
-## Fuentes y definiciones
+La base por defecto compara 50–69 con un escenario que suma edades 45–49, 50–69 y 70–74. Los conteos se agregaron desde mujeres residentes de la tabla oficial INE 59238 al **1 de octubre de 2026** y son provisionales. El mismo corte por edad, sexo y CCAA se agrega para todas las bandas; no se combinan periodos distintos. La instantánea de enero y julio también se conserva para medir la revisión de los datos provisionales.
 
-- [INE, Estadística Continua de Población, tabla 59238](https://ine.es/jaxiT3/Tabla.htm?L=0&t=59238): mujeres residentes por edad simple y comunidad, 1/1/2026, dato provisional. Se agrupan 45–49, 50–69 y 70–74. La población residente no es población elegible.
-- [Red de Programas de Cribado de Cáncer, informe de evaluación 2023](https://cribadocancer.es/indicadores-cancer-de-mama/): tasa de participación de mujeres invitadas de 50–69 años para 13 territorios. Red de Programas de Cribado de Cáncer, *Programas de Cribado de Cáncer de Mama. Informe de evaluación 2023* (datos: mayo de 2025). En los seis territorios sin tasa en el archivo del proyecto se introduce un supuesto manual ilustrativo. Si se seleccionan 45–74 años, aplicar la tasa 50–69 a las demás edades es únicamente un supuesto, no un dato observado.
-- [Comunidad de Madrid, población censada por edad, nacionalidad y sexo](https://datos.comunidad.madrid/dataset/poblacion_censada_por_edad_nacionalidad_y_sexo): censo municipal de 2025; el valor que se muestra es una suma propia de 179 municipios. La ficha señala [Creative Commons Attribution](https://creativecommons.org/licenses/by/4.0/). Las diferencias con el INE 2026 pueden depender de fecha, cobertura o definición; no se atribuyen a una causa.
+El Ministerio comunicó el 23 de octubre de 2026 la aprobación del proyecto de orden que amplía la cartera común a 45–74, con despliegue progresivo, calendario y fases territoriales. Esta demo modela el rango completo desde el principio; no representa la norma ya implantada de forma uniforme ni la planificación real de ninguna comunidad. [Comunicado del Ministerio](https://www.sanidad.gob.es/gabinete/notasPrensa.do?id=6990).
 
-## Funcionamiento y límites
+La población residente no es un registro de población elegible. El modelo no contiene exclusiones clínicas, antecedentes, invitaciones ya enviadas, cohortes que entren/salgan, ni acceso individual.
 
-Se calcula población × fracción hipotética de invitación × tasa supuesta de participación. La cascada añade valoraciones posteriores como fracción hipotética de las mamografías. Dos repartos fijos distribuyen el mismo total en tres periodos: A 25/35/40 % y B 50/35/15 %. No equivalen a calendarios oficiales. A tendrá un pico menor por construcción, mientras B concentra más invitaciones en el primer periodo: estas salidas no establecen cuál es clínicamente mejor.
+## Participación y supuestos
 
-El límite anual es introducido por la persona usuaria y no es capacidad real ni estima esperas. Los rangos de sensibilidad no son probabilidades ni intervalos de confianza. El modelo no incorpora nuevas cohortes, rondas, exclusiones, movilidad, muertes ni reglas territoriales efectivas y no contiene proyecciones futuras.
+La Red publica el informe *Programas de Cribado de Cáncer de Mama de España. Resultados 2023, actualización noviembre 2025 V2* (última actualización indicada: 20/11/2025). Las condiciones para redistribuir la tabla derivada no se han verificado; por ello, se retiró del repositorio el CSV y la demo no usa esas tasas. Ofrece 60% como supuesto manual, no como dato imputado. En el rango 45–74 se aplica una tasa común solo como hipótesis no validada. El valor de Madrid 2025 es contexto regional de censo municipal y no se combina con INE 2026.
 
-La IA no está integrada en esta versión. Se investigará si una serie histórica suficiente permite entrenar y evaluar un modelo; el primer experimento no superó la referencia sencilla y no constituye validación temporal.
+Los resultados son valores esperados aritméticos, por eso se redondean al mostrar. Los rangos de sensibilidad son escenarios condicionados a tasas seleccionadas, no intervalos probabilísticos ni de confianza.
 
-## Pruebas y estado
+## Fuentes y límites
 
-El motor se comprobó en 162 combinaciones de extremos y la interfaz mediante pruebas automatizadas de los controles. No se ha completado la revisión visual independiente en navegador ni la validación con profesionales. La demo no es apta para decisiones clínicas o presupuestarias.
+- [INE ECP, tabla 59238](https://www.ine.es/jaxiT3/Tabla.htm?L=0&t=59238) y [ECP 1/10/2026](https://www.ine.es/dyngs/Prensa/ECP3T26.htm): población residente provisional por edad, sexo y territorio.
+- [Red de Programas de Cribado, resultados 2023 V2](https://cribadocancer.es/download/programas-de-cribado-de-cancer-de-mama-de-espana-resultados-2023/): fuente identificada, pero la autorización para redistribuir la tabla derivada no está verificada; las tasas no se incluyen en el producto.
+- [Comunidad de Madrid, población censada](https://datos.comunidad.madrid/dataset/poblacion_censada_por_edad_nacionalidad_y_sexo): contexto 2025 agregado desde 179 municipios.
+- [Ministerio de Sanidad, proyecto 45–74](https://www.sanidad.gob.es/gabinete/notasPrensa.do?id=6990): proyecto con implantación progresiva, sin modelar fechas locales.
+
+No se estiman capacidad, colas, esperas, costes, cánceres detectados/evitados, mortalidad ni efectos causales. La línea de IA no está integrada; el experimento previo no superó la referencia sencilla y no fue validación temporal.
+
+## Pruebas
+
+Desde la raíz del repositorio: `node --test tests/demo-model.test.cjs` y `python -m unittest discover -s tests -v`. Las comprobaciones técnicas no sustituyen revisión científica profesional, revisión con usuarias ni evaluación operativa.
