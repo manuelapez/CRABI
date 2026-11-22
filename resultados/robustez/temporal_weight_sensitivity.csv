@@ -1,0 +1,6 @@
+﻿distribution,weights,total_expected_tests,peak_expected_tests_per_period,relative_peak_vs_equal_pct,periods_over_hypothetical_250000_threshold,classification
+A_current_25_35_40,0.25000000/0.35000000/0.40000000,4373608.8,1749443.52,20.000000000000018,3,arbitrary temporal allocation; not calendar or capacity
+B_current_50_35_15,0.50000000/0.35000000/0.15000000,4373608.8,2186804.4,50.0,3,arbitrary temporal allocation; not calendar or capacity
+equal_33_33_34,0.33333333/0.33333333/0.33333333,4373608.8,1457869.5999999999,0.0,3,arbitrary temporal allocation; not calendar or capacity
+front_loaded_60_30_10,0.60000000/0.30000000/0.10000000,4373608.8,2624165.28,80.0,3,arbitrary temporal allocation; not calendar or capacity
+back_loaded_10_30_60,0.10000000/0.30000000/0.60000000,4373608.8,2624165.28,80.0,3,arbitrary temporal allocation; not calendar or capacity

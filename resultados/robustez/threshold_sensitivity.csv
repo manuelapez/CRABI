@@ -1,0 +1,8 @@
+﻿territory_scenario,threshold_hypothetical_tests_per_period,plan_A_periods_above,plan_B_periods_above,peak_A,peak_B,classification
+Madrid 50-69 resident population Oct-2026; invitation 100%; participation scenario 60%,0,3,3,249355.91999999998,311694.89999999997,mathematical threshold comparison only; not capacity or saturation
+Madrid 50-69 resident population Oct-2026; invitation 100%; participation scenario 60%,100000,3,2,249355.91999999998,311694.89999999997,mathematical threshold comparison only; not capacity or saturation
+Madrid 50-69 resident population Oct-2026; invitation 100%; participation scenario 60%,150000,3,2,249355.91999999998,311694.89999999997,mathematical threshold comparison only; not capacity or saturation
+Madrid 50-69 resident population Oct-2026; invitation 100%; participation scenario 60%,200000,2,2,249355.91999999998,311694.89999999997,mathematical threshold comparison only; not capacity or saturation
+Madrid 50-69 resident population Oct-2026; invitation 100%; participation scenario 60%,250000,0,1,249355.91999999998,311694.89999999997,mathematical threshold comparison only; not capacity or saturation
+Madrid 50-69 resident population Oct-2026; invitation 100%; participation scenario 60%,300000,0,1,249355.91999999998,311694.89999999997,mathematical threshold comparison only; not capacity or saturation
+Madrid 50-69 resident population Oct-2026; invitation 100%; participation scenario 60%,350000,0,0,249355.91999999998,311694.89999999997,mathematical threshold comparison only; not capacity or saturation
