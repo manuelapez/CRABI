@@ -21,7 +21,7 @@
     </div>
     <div class="control"><label for="territorialInvitation">Fracción invitada supuesta <output id="territorialInvitationValue">100 %</output></label><input id="territorialInvitation" type="range" min="0" max="100" step="5" value="100"></div>
     <div class="control"><label for="territorialParticipation">Participación supuesta <output id="territorialParticipationValue">60 %</output></label><input id="territorialParticipation" type="range" min="0" max="100" step="1" value="60"></div>
-    <div class="mini-alert" id="territorialRuleStatus" role="status" aria-live="polite"></div>
+    <div class="mini-alert" id="territorialRuleStatus" role="status" aria-live="polite"></div><h3>Cómo interpretar la evidencia territorial</h3><p id="territorialInterpretation" aria-live="polite"></p><details><summary>¿Qué significa este rango?</summary><p>Es una referencia documental del programa territorial en la fecha de consulta, no confirmación de elegibilidad individual ni de implantación simultánea en todas las cohortes. Un rango anunciado no se trata como vigente. Si la evidencia no permite confirmar el rango actual, el escenario permanece bloqueado.</p></details><details><summary>¿Qué no se puede concluir?</summary><p>Las diferencias de población entre rangos describen tamaños demográficos, no desempeño, acceso, calidad ni resultados sanitarios. No permiten construir rankings territoriales ni atribuir causas.</p></details>
     <p class="notice">El rango de edad es una regla publicada, no la elegibilidad efectiva. No se descuentan exclusiones, cribado oportunista, derechos sanitarios, cohortes ya invitadas ni antecedentes de riesgo. Los valores de invitación y participación son supuestos; el resultado no es demanda, capacidad ni predicción. Las ampliaciones graduales pueden hacer que el rango completo no esté implantado simultáneamente en todas las cohortes.</p>
     <div class="source"><span id="territorialSource"></span><span id="territorialPeriodicitySource"></span><span id="territorialCohortSource"></span> · <a href="../VALIDACION_TERRITORIAL_CRABI.md">Auditoría de vigencia y calidad</a></div>`;
   host.appendChild(panel);
@@ -53,6 +53,7 @@
     const periodicity = rule.intervalo_meses
       ? `Periodicidad documentada: cada ${rule.intervalo_meses} meses. `
       : "Periodicidad no verificada. ";
+    document.getElementById("territorialInterpretation").textContent = CRABI_INTERPRET.territorial({name:territory.name,min,max,population,valid:validRule&&population!==null});
     document.getElementById("territorialRuleStatus").textContent =
       `${territory.name}. ${publishedRange}${validRange}Evidencia: ${rule.nivel_evidencia}. ` +
       `Fuente publicada: ${sourceDate}; vigencia: ${validity}. ${periodicity}${rule.estado_vigencia} ` +
