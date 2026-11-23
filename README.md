@@ -1,6 +1,6 @@
 # CRABI — una herramienta para explorar la planificación del cribado
 
-CRABI es un proyecto en desarrollo que busca convertir datos, reglas y supuestos de planificación en escenarios claros, comparables y reproducibles para los programas de cribado de cáncer de mama. La idea es que una persona pueda cambiar una hipótesis —por ejemplo, el rango de edad o el ritmo de invitación— y observar cómo se modifica el volumen estimado, qué depende de cada supuesto y qué información sería necesaria para afinar el análisis.
+CRABI es un proyecto en desarrollo que busca convertir datos, reglas y supuestos de planificación en escenarios claros, comparables y reproducibles para los programas de cribado de cáncer de mama. La idea es que una persona pueda cambiar una hipótesis, por ejemplo, el rango de edad o el ritmo de invitación, y observar cómo se modifica el volumen estimado, qué depende de cada supuesto y qué información sería necesaria para afinar el análisis.
 
 El objetivo es construir progresivamente un espacio de trabajo que conecte población de referencia, características de los programas, escenarios de invitación y participación, distribución temporal y evidencia disponible. CRABI aspira a ayudar a formular preguntas, comparar alternativas y conversar sobre necesidades de planificación con supuestos a la vista. Conforme se incorporen fuentes y validaciones, podrá ofrecer análisis más contextualizados por territorio y facilitar la exploración de escenarios; cada ampliación dependerá de la calidad, comparabilidad y autorización de los datos disponibles.
 
