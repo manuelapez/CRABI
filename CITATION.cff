@@ -1,21 +1,21 @@
 cff-version: 1.2.0
-message: "Si utilizas esta versión de CRABI, cita el software con los metadatos siguientes."
-title: "CRABI: simulación exploratoria y evidencia territorial para la planificación del cribado de cáncer de mama"
-abstract: >-
-  Prototipo de investigación que explora, mediante escenarios aritméticos,
-  cómo la población residente, el rango de edad, la invitación, la
-  participación supuesta, distribución temporal y rangos oficiales territoriales
-  modifican resultados potenciales de planificación del cribado de cáncer de mama
-  en España. Los escenarios no son predicciones ni estimaciones de elegibilidad.
+message: "Si utilizas o citas esta candidata de CRABI, cita a la autora y especifica la versión."
+title: "CRABI — Laboratorio de simulación epidemiológica"
+version: "0.4.0-candidate"
+date-released: 2026-11-26
 authors:
-  - family-names: "Ibáñez Valenzuela"
+  - family-names: "Ibáñez"
     given-names: "Manuela"
-version: "0.2 (prototipo demográfico y territorial)"
 repository-code: "https://github.com/manuelapez/CRABI"
 keywords:
-  - "breast cancer screening"
-  - "health planning"
-  - "population data"
-  - "sensitivity analysis"
-  - "Spain"
-type: software
+  - demografía
+  - simulación
+  - cribado
+  - contrafactual
+  - aprendizaje automático
+abstract: >-
+  Prototipo exploratorio con escenarios demográficos, territoriales,
+  contrafactuales y un surrogate de aprendizaje automático entrenado con
+  simulaciones sintéticas. No es una herramienta clínica.
+
+

@@ -1,0 +1,361 @@
+<!doctype html><!-- Copyright (c) 2026 Manuela Ibáñez. See LICENSE_SCOPE.md for license boundaries. -->
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Recorrido divulgativo e interactivo por un caso hipotético de simulación con CRABI.">
+  <title>¡Es tu turno! — Caso práctico CRABI</title>
+  <link rel="stylesheet" href="paquete_aprobado/prototipo/styles.css">
+  <script src="paquete_aprobado/prototipo/caso_jurado_data.js" defer></script>
+  <script src="paquete_aprobado/prototipo/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al recorrido</a>
+
+  <header class="masthead">
+    <a class="brand" href="#inicio" aria-label="CRABI, ir al inicio">CRABI</a>
+    <p>Laboratorio de simulación epidemiológica</p>
+    <span>DATAMAD 2026 · prototipo educativo</span>
+  </header>
+
+  <nav class="chapter-index" aria-label="Índice del caso práctico">
+    <ol>
+      <li><a href="#capitulo-1">1. Tu papel</a></li>
+      <li><a href="#capitulo-2">2. La población</a></li>
+      <li><a href="#capitulo-3">3. Una decisión</a></li>
+      <li><a href="#capitulo-4">4. El territorio</a></li>
+      <li><a href="#capitulo-5">5. La hipótesis</a></li>
+      <li><a href="#capitulo-6">6. Lo pendiente</a></li>
+      <li><a href="#capitulo-7">7. Las cuentas</a></li>
+      <li><a href="#capitulo-8">8. Otros casos</a></li>
+      <li><a href="#capitulo-9">9. La IA</a></li>
+      <li><a href="#capitulo-10">10. El cierre</a></li>
+    </ol>
+  </nav>
+
+  <main id="contenido">
+    <section class="opening" id="inicio" aria-labelledby="page-title">
+      <p class="eyebrow" data-enter>Un recorrido guiado · DATAMAD 2026</p>
+      <h1 id="page-title" data-enter>¡Es tu turno! Ponte en la piel de un investigador</h1>
+      <p class="opening-subtitle" data-enter>Descubre cómo funciona CRABI realizando tu propio estudio guiado.</p>
+      <div class="opening-copy" data-enter>
+        <p>No necesitas saber estadística, medicina ni programación. Durante este recorrido formarás parte, de manera ficticia, de un equipo de investigación en salud pública.</p>
+        <p>Tu equipo quiere responder una pregunta sencilla: <strong>¿qué podría ocurrir si un programa de detección temprana del cáncer de mama redujera su actividad durante un tiempo y después intentáramos recuperar lo pendiente?</strong></p>
+        <p>Usarás un dato oficial, elegirás una condición para el experimento y observarás cómo cambian los resultados. Al final verás qué puede aproximar la inteligencia artificial y por qué comprobamos sus respuestas.</p>
+      </div>
+      <p class="hypothesis-note" data-enter>Es un ejercicio hipotético de simulación. No predice la actividad sanitaria real.</p>
+      <a class="start-link" href="#capitulo-1" data-enter>Comenzar mi investigación <span aria-hidden="true">↓</span></a>
+    </section>
+
+    <section class="chapter reveal" id="capitulo-1" aria-labelledby="h-ch1">
+      <div class="chapter-number" aria-hidden="true">01</div>
+      <div class="chapter-content">
+        <p class="eyebrow">Tu nuevo papel</p>
+        <h2 id="h-ch1">Hoy vas a formar parte de un equipo de investigación.</h2>
+        <section class="plain-language" aria-label="En pocas palabras">
+          <p class="layer-label">En pocas palabras</p>
+          <p>Imagina que te incorporas por un rato a un equipo que estudia preguntas de salud. No vas a decidir qué debe hacer un programa real. Vas a explorar una pregunta más concreta: si una actividad bajara durante dos etapas, ¿cómo se repartiría después lo que quedó pendiente?</p>
+          <p>En España trabajan muchos equipos e instituciones de investigación. Las cifras que ves ayudan a situar ese entorno; no significan que CRABI pertenezca a esas redes ni que ellas utilicen este prototipo.</p>
+        </section>
+        <div class="institutional-grid" id="institutional-stats" aria-label="Cifras institucionales verificadas"></div>
+        <blockquote data-enter>¿Qué puede pasar con una trayectoria matemática cuando una actividad se reduce durante un tiempo?</blockquote>
+        <p class="transition-line">Primero necesitas saber de cuántas personas parte el ejemplo.</p>
+        <details class="scientific-note">
+          <summary>La explicación científica</summary>
+          <div class="scientific-body">
+            <p>CRABI se presenta aquí como un laboratorio de simulación de escenarios sintéticos. La pregunta se formula sobre salidas de un motor determinista y no sobre resultados clínicos observados.</p>
+            <p>Las cifras institucionales tienen unidades y periodos diferentes: 36 institutos acreditados y más de 31.000 personas investigadoras adscritas en 380 centros según la presentación consultada del Instituto de Salud Carlos III (ISCIII); ocho institutos en Madrid en la Memoria ISCIII 2024; y 506 grupos de pleno derecho del Centro de Investigación Biomédica en Red (CIBER) en 104 instituciones en las cuentas de 2025. No se suman entre sí ni se atribuye relación con CRABI.</p>
+            <ul>
+              <li><a href="https://www.isciii.es/institutos-investigacion-sanitaria-presentacion" target="_blank" rel="noopener noreferrer">ISCIII, presentación de Institutos de Investigación Sanitaria</a>.</li>
+              <li><a href="https://transparencia.isciii.es/documents/40806/4639de59-5691-1bdf-f5e2-a5ed0b6efcdb" target="_blank" rel="noopener noreferrer">ISCIII, Memoria anual 2024</a>.</li>
+              <li><a href="https://www.ciberisciii.es/media/3398218/ccaa-ciber-2025-aprobadas-e-informe-de-auditoria.pdf" target="_blank" rel="noopener noreferrer">CIBER, cuentas anuales de 2025 e informe de auditoría</a>.</li>
+            </ul>
+            <p class="limit-note">El contexto de investigación no demuestra adopción, colaboración, calidad clínica ni impacto de CRABI.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="chapter reveal" id="capitulo-2" aria-labelledby="h-ch2">
+      <div class="chapter-number" aria-hidden="true">02</div>
+      <div class="chapter-content">
+        <p class="eyebrow">La población</p>
+        <h2 id="h-ch2">Lo primero es saber de cuántas personas estamos hablando.</h2>
+        <section class="plain-language" aria-label="En pocas palabras">
+          <p class="layer-label">En pocas palabras</p>
+          <p>Para hacer una cuenta necesitas decidir a quién estás mirando. En este ejemplo eliges mujeres residentes en la Comunidad de Madrid que tienen entre 50 y 69 años.</p>
+          <p>Según el dato del Instituto Nacional de Estadística que usamos, en ese grupo hay <strong id="population-number" class="dynamic-number"></strong>. Es un recuento de residentes, no una lista de pacientes ni de personas que hayan recibido una prueba.</p>
+        </section>
+        <figure class="population-figure" aria-labelledby="population-caption">
+          <div class="population-heading"><span>Madrid</span><span id="population-date"></span></div>
+          <div class="population-display" id="population-visual" role="img"></div>
+          <div class="population-bar" aria-hidden="true"><span id="population-bar-fill"></span></div>
+          <figcaption id="population-caption">Mujeres residentes de 50–69 años · fuente demográfica provisional.</figcaption>
+        </figure>
+        <p class="source-line">Fuente: <a id="population-source" target="_blank" rel="noopener noreferrer">tabla de población por edad del INE</a> · <a id="population-release" target="_blank" rel="noopener noreferrer">nota de la ECP</a>.</p>
+        <p class="transition-line">Ese número te dice cuántas residentes hay en el grupo; ahora decide con qué parte trabajarás en el ejercicio.</p>
+        <details class="scientific-note">
+          <summary>La explicación científica</summary>
+          <div class="scientific-body">
+            <p>La fuente es la Estadística Continua de Población (ECP), tabla 59238, con referencia provisional al 1 de octubre de 2026. La cifra se obtiene sumando las edades simples de 50 a 69 años, inclusive, para mujeres residentes en la Comunidad de Madrid.</p>
+            <p>La unidad es personas residentes. La agregación no determina quién cumple los criterios individuales del programa ni quién recibe una invitación.</p>
+            <ul>
+              <li><a href="https://www.ine.es/jaxiT3/Tabla.htm?L=0&amp;t=59238" target="_blank" rel="noopener noreferrer">INE, tabla 59238</a>.</li>
+              <li><a href="https://www.ine.es/dyngs/Prensa/ECP3T26.htm" target="_blank" rel="noopener noreferrer">INE, nota de población a 1 de octubre de 2026</a>.</li>
+            </ul>
+            <p class="limit-note">La fecha, el carácter provisional y la fuente pertenecen a esta base demográfica. No se mezcla con el Censo municipal de Madrid de 2025.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="chapter reveal" id="capitulo-3" aria-labelledby="h-ch3">
+      <div class="chapter-number" aria-hidden="true">03</div>
+      <div class="chapter-content">
+        <p class="eyebrow">Una decisión para el ejercicio</p>
+        <h2 id="h-ch3">Tener esa edad no significa que todas participen.</h2>
+        <section class="plain-language" aria-label="En pocas palabras">
+          <p class="layer-label">En pocas palabras</p>
+          <p>Conocer cuántas residentes hay no te permite saber quién cumple todos los requisitos, quién recibiría una invitación o quién acudiría. No tenemos esa información persona por persona.</p>
+          <p>Para practicar con el simulador, decides trabajar con la mitad como condición inventada para este ejemplo. El cálculo da <strong id="invitation-equivalents" class="dynamic-number"></strong>: una cantidad equivalente para hacer las cuentas, no cartas enviadas ni personas identificadas.</p>
+        </section>
+        <div class="population-conversion" aria-label="Transformación esquemática de población a unidades equivalentes del ejercicio">
+          <div class="conversion-row">
+            <div class="conversion-end"><span class="conversion-label">Personas residentes de partida</span><strong id="conversion-residents" class="dynamic-number"></strong></div>
+            <span class="conversion-symbol" aria-hidden="true">×</span>
+            <div class="conversion-end"><span class="conversion-label">Parte elegida para el ejemplo</span><strong id="conversion-fraction" class="dynamic-number"></strong></div>
+            <span class="conversion-symbol" aria-hidden="true">→</span>
+            <div class="conversion-end result-end"><span class="conversion-label">Cantidad para las cuentas del ejercicio</span><strong id="conversion-result" class="dynamic-number"></strong></div>
+          </div>
+          <div class="share-track" aria-hidden="true"><span id="share-fill"></span></div>
+          <p id="conversion-caption" class="figure-note"></p>
+        </div>
+        <p class="context-participation"><strong id="participation-context"></strong> aparece solo como contexto. No la utilizas para calcular asistencia, pacientes ni pruebas.</p>
+        <p class="transition-line">La edad elegida también tiene contexto en la documentación del programa de Madrid.</p>
+        <details class="scientific-note">
+          <summary>La explicación científica</summary>
+          <div class="scientific-body">
+            <p>La fracción hipotética de inclusión es el 50 %. La transformación es residentes × fracción incluida, con redondeo al entero más próximo definido por el flujo de datos. La cantidad de referencia almacenada es 519.492 unidades equivalentes hipotéticas de invitación.</p>
+            <p>El parámetro contextual de participación es 0,60, pero el JSON declara expresamente que no se aplica al motor ni a RF v0.2. Por ello, estas unidades no se reinterpretan como participación, pruebas efectivas o pacientes.</p>
+            <p class="limit-note">La representación de dos mitades es esquemática: no dibuja personas ni identifica elegibilidad individual.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="chapter reveal" id="capitulo-4" aria-labelledby="h-ch4">
+      <div class="chapter-number" aria-hidden="true">04</div>
+      <div class="chapter-content">
+        <p class="eyebrow">El territorio</p>
+        <h2 id="h-ch4">Cada territorio puede explicar su programa de forma diferente.</h2>
+        <section class="plain-language" aria-label="En pocas palabras">
+          <p class="layer-label">En pocas palabras</p>
+          <p>Antes de elegir edades, miras qué dice la fuente oficial de Madrid. Su programa de detección temprana, llamado DEPRECAM, describe mamografías para mujeres residentes de 50 a 69 años, sin síntomas y que cumplen los criterios de inclusión. La mamografía se plantea cada dos años.</p>
+          <p>Eso ayuda a entender por qué delimitas el ejemplo con esas edades. No significa que todas las residentes cumplan los requisitos ni que sepamos quién recibe una citación.</p>
+        </section>
+        <div class="territory-rule" data-enter>
+          <p class="rule-name" id="territory-name"></p>
+          <p><span>Edades descritas</span><strong id="territory-ages"></strong></p>
+          <p><span>Frecuencia descrita</span><strong id="territory-interval"></strong></p>
+          <p><span>Consulta</span><strong>25 de noviembre de 2026</strong></p>
+          <a id="territory-source" target="_blank" rel="noopener noreferrer">Leer la fuente oficial de Madrid ↗</a>
+        </div>
+        <p class="transition-line">Ya sabes de dónde sale la población. Ahora imagina qué cambia si la actividad baja durante dos etapas.</p>
+        <details class="scientific-note">
+          <summary>La explicación científica</summary>
+          <div class="scientific-body">
+            <p>La página institucional describe el rango 50–69 años, residencia, ausencia de síntomas, criterios de inclusión y mamografía bienal. La fecha de publicación no era visible en la página consultada; la fecha de consulta se conserva para trazabilidad.</p>
+            <p>La regla territorial se usa como contexto documental. No se aplica a personas individuales ni transforma el agregado de residentes en una cifra de población elegible.</p>
+            <p><a href="https://www.comunidad.madrid/salud/deteccion-precoz-cancer-mama" target="_blank" rel="noopener noreferrer">Comunidad de Madrid, detección precoz del cáncer de mama (DEPRECAM)</a>.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="chapter reveal" id="capitulo-5" aria-labelledby="h-ch5">
+      <div class="chapter-number" aria-hidden="true">05</div>
+      <div class="chapter-content">
+        <p class="eyebrow">Tu hipótesis</p>
+        <h2 id="h-ch5">Imagina que durante dos etapas la actividad se reduce.</h2>
+        <section class="plain-language" aria-label="En pocas palabras">
+          <p class="layer-label">En pocas palabras</p>
+          <p>Repartes la cantidad del ejercicio en seis etapas. Para tener una comparación sencilla, cada etapa empieza con la misma referencia: <strong id="reference-per-period" class="dynamic-number"></strong> unidades equivalentes.</p>
+          <p>Ahora imaginas que en las etapas 2 y 3 se completa un 30 % menos que esa referencia. La parte que falta no desaparece: queda pendiente para intentar recuperarla más adelante.</p>
+          <p>También eliges un techo hipotético de actividad para cada etapa. Cambia según el caso A, B o C que selecciones después.</p>
+        </section>
+        <div class="assumptions-sequence" id="assumptions-sequence" aria-label="Parámetros del escenario seleccionado">
+          <div class="assumption-row" data-enter><span>Seis etapas</span><strong id="horizon-value"></strong></div>
+          <div class="assumption-row" data-enter><span>Reducción en las etapas 2 y 3</span><strong id="drop-value"></strong></div>
+          <div class="assumption-row" data-enter><span>Límite supuesto por etapa</span><strong id="capacity-value"></strong></div>
+          <div class="assumption-row" data-enter><span>Forma de recuperar</span><strong id="strategy-value"></strong></div>
+        </div>
+        <p class="transition-line">Mira cómo el simulador aplica esas reglas, etapa a etapa.</p>
+        <details class="scientific-note">
+          <summary>La explicación científica</summary>
+          <div class="scientific-body">
+            <p>Las seis etapas son periodos abstractos, sin equivalencia con meses, años o rondas reales. La actividad de referencia por periodo se toma de las filas exactas H-01: 86.582 unidades equivalentes. Esta cifra también coincide con 519.492 / 6.</p>
+            <p>La pérdida generada en P2 y P3 es ⌊86.582 × 0,30⌋ = 25.974 unidades en cada periodo. La capacidad es un techo matemático por periodo: A y C, 108.228; B, 99.570. No mide personal, equipamiento, agendas ni capacidad sanitaria.</p>
+            <p><strong>Nota de integridad de la fuente:</strong> el JSON congelado contiene <code>assumptions.referencePerPeriod = 86582</code>, valor que coincide con las seis filas <code>period.reference = 86582</code> y con <code>519492 / 6</code>. La interfaz valida esa coherencia y utiliza 86.582 para calcular la pérdida por periodo. La capacidad se expresa por separado en <code>capacityPerPeriod</code>: 108.228 en A/C y 99.570 en B.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="chapter reveal" id="capitulo-6" aria-labelledby="h-ch6">
+      <div class="chapter-number" aria-hidden="true">06</div>
+      <div class="chapter-content">
+        <p class="eyebrow">Lo que queda pendiente</p>
+        <h2 id="h-ch6">Ahora sigues el recorrido de lo que falta y de lo que se recupera.</h2>
+        <section class="plain-language" aria-label="En pocas palabras">
+          <p class="layer-label">En pocas palabras</p>
+          <p>La parte que falta se suma al terminar la etapa en que ocurre la reducción. Solo puedes empezar a recuperarla en la etapa siguiente. Si vuelve a reducirse la actividad, se añade otra parte pendiente.</p>
+          <p>En la etapa 3, por ejemplo, ya puedes recuperar algo de lo acumulado en la etapa 2. Al mismo tiempo se genera una nueva cantidad pendiente. La tabla y los gráficos muestran las cifras exactas del caso que elijas.</p>
+        </section>
+        <figure class="data-figure" aria-labelledby="activity-caption">
+          <figcaption id="activity-caption"><strong>Así cambia la actividad en las seis etapas</strong><span>Unidades equivalentes hipotéticas por etapa · comparación con el plan de referencia</span></figcaption>
+          <div id="activity-chart" class="period-chart activity-chart" role="img" aria-label="Comparación de la actividad de referencia, la actividad alternativa y el límite supuesto"></div>
+          <div class="chart-legend" aria-hidden="true"><span><i class="legend-dot planned"></i>Plan de referencia</span><span><i class="legend-dot alternative"></i>Actividad en el ejemplo</span><span><i class="legend-dot ceiling"></i>Límite supuesto</span><span><i class="legend-dot loss"></i>Etapa con reducción</span></div>
+        </figure>
+        <figure class="data-figure" aria-labelledby="pending-caption">
+          <figcaption id="pending-caption"><strong>Lo que todavía queda pendiente</strong><span>Saldo exacto al cerrar cada etapa · unidades equivalentes hipotéticas</span></figcaption>
+          <div id="pending-chart" class="pending-chart" role="img" aria-label="Evolución del saldo pendiente al cierre de cada etapa"></div>
+        </figure>
+        <div class="table-scroll" role="region" aria-label="Detalle de las seis etapas; se puede recorrer horizontalmente si la pantalla es estrecha" tabindex="0">
+          <table id="trajectory-table">
+            <caption>Detalle del caso seleccionado. Las cifras corresponden a unidades equivalentes hipotéticas.</caption>
+            <thead><tr><th scope="col">Etapa</th><th scope="col">Plan de referencia</th><th scope="col">Cantidad que falta</th><th scope="col">Recuperada en esta etapa</th><th scope="col">Actividad del ejemplo</th><th scope="col">Pendiente al cierre</th></tr></thead>
+            <tbody id="trajectory-rows"></tbody>
+          </table>
+        </div>
+        <p class="transition-line">Al final puedes comprobar si todo lo que faltó se recuperó o si quedó algo pendiente.</p>
+        <details class="scientific-note">
+          <summary>La explicación científica</summary>
+          <div class="scientific-body">
+            <p>Convención temporal H-01: la pérdida del periodo se incorpora al saldo al cierre de ese periodo. La recuperación correspondiente puede comenzar en el periodo siguiente, incluso si ese periodo genera una nueva pérdida.</p>
+            <p>Para cada periodo, el saldo al cierre es el saldo anterior + pérdida generada − recuperación efectiva. La actividad alternativa es referencia − pérdida generada + recuperación efectiva. La recuperación efectiva respeta el techo seleccionado.</p>
+            <p><code>carried_in</code> en los CSV describe arrastre por capacidad y no el saldo total de pendientes. La tabla de esta página obtiene el saldo de <code>pendingAtEnd</code> del JSON congelado.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="chapter reveal" id="capitulo-7" aria-labelledby="h-ch7">
+      <div class="chapter-number" aria-hidden="true">07</div>
+      <div class="chapter-content">
+        <p class="eyebrow">¿Cuadran las cuentas?</p>
+        <h2 id="h-ch7">Comprueba cuánto se recuperó y cuánto quedó.</h2>
+        <section class="plain-language" aria-label="En pocas palabras">
+          <p class="layer-label">En pocas palabras</p>
+          <p>Al cerrar el ejercicio, compara tres cantidades: lo que quedó pendiente por la reducción, lo que lograste recuperar y lo que aún falta.</p>
+          <p>Con el caso A seleccionado, el simulador recupera todo lo que se había acumulado. Si eliges otro caso, el resultado puede cambiar. La igualdad que ves siempre corresponde al escenario activo.</p>
+        </section>
+        <div class="balance-equation" role="img" aria-label="Pendiente generada equivale a cantidad recuperada más saldo final pendiente">
+          <div><span>Se generó</span><strong id="balance-generated" class="dynamic-number"></strong></div>
+          <b aria-hidden="true">=</b>
+          <div><span>Se recuperó</span><strong id="balance-recovered" class="dynamic-number"></strong></div>
+          <b aria-hidden="true">+</b>
+          <div><span>Quedó al final</span><strong id="balance-remainder" class="dynamic-number"></strong></div>
+        </div>
+        <p id="balance-explanation" class="result-explanation" aria-live="polite"></p>
+        <div class="result-strip" id="central-results" aria-label="Otros resultados exactos del escenario"></div>
+        <p id="capacity-interpretation" class="small-note"></p>
+        <p class="transition-line">¿Qué cambia si ajustas el límite o repartes la recuperación de otra forma?</p>
+        <details class="scientific-note">
+          <summary>La explicación científica</summary>
+          <div class="scientific-body">
+            <p>La identidad de conservación global es: pendientes generadas = recuperación acumulada + pendiente final. Sus unidades son unidades equivalentes hipotéticas.</p>
+            <p>El pico es la mayor actividad alternativa en una etapa. Los periodos limitados son aquellos en que la restricción matemática afecta la recuperación. Estas magnitudes describen el cálculo H-01 para el horizonte seleccionado, no un sistema sanitario real.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="chapter reveal" id="capitulo-8" aria-labelledby="h-ch8">
+      <div class="chapter-number" aria-hidden="true">08</div>
+      <div class="chapter-content">
+        <p class="eyebrow">Tres casos ya calculados</p>
+        <h2 id="h-ch8">Prueba otra situación y descubre qué cambia.</h2>
+        <section class="plain-language" aria-label="En pocas palabras">
+          <p class="layer-label">En pocas palabras</p>
+          <p>Ya viste un caso. Ahora puedes escoger entre tres resultados que el motor calculó antes. La población, la reducción y las seis etapas se mantienen; cambia el límite o la forma de recuperar.</p>
+          <p>Elige A, B o C. Los gráficos, las cuentas y la comparación con la IA cambiarán juntos. No se vuelve a calcular ni se inventa un cuarto caso.</p>
+        </section>
+        <fieldset class="scenario-fieldset">
+          <legend>Elige el caso que quieres explorar</legend>
+          <div id="scenario-options" class="scenario-options"></div>
+        </fieldset>
+        <p id="scenario-status" class="scenario-status" aria-live="polite" aria-atomic="true"></p>
+        <div class="scenario-summary" id="scenario-summary"></div>
+        <p class="small-note">A y B tienen recuperación uniforme y límites distintos. A y C comparten el límite de 1,25× y reparten la recuperación de forma distinta.</p>
+        <p class="transition-line">Ahora que puedes cambiar de caso, compara el cálculo matemático con la estimación de la IA.</p>
+        <details class="scientific-note">
+          <summary>La explicación científica</summary>
+          <div class="scientific-body">
+            <p>Se presentan tres escenarios congelados: A = capacidad nominal 1,25× y estrategia uniforme; B = 1,15× y uniforme; C = 1,25× y gradual. Cada combinación corresponde a un identificador y a seis filas exactas incluidos en el JSON de origen.</p>
+            <p>La población, inclusión, participación contextual, horizonte, reducción e inicio/duración de la perturbación permanecen fijos. La página cambia la selección y vuelve a representar los resultados ya almacenados; no ejecuta H-01 ni un modelo de IA.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="chapter reveal" id="capitulo-9" aria-labelledby="h-ch9">
+      <div class="chapter-number" aria-hidden="true">09</div>
+      <div class="chapter-content">
+        <p class="eyebrow">La IA frente al cálculo</p>
+        <h2 id="h-ch9">¿Puede la inteligencia artificial acercarse al resultado?</h2>
+        <section class="plain-language" aria-label="En pocas palabras">
+          <p class="layer-label">En pocas palabras</p>
+          <p>El motor matemático calcula cada caso siguiendo unas reglas. Después, otro programa aprendió a aproximar esas respuestas viendo muchos ejemplos sintéticos que el motor ya había resuelto.</p>
+          <p>Primero ves lo que estima la IA; luego, el valor exacto del motor; por último, la diferencia. Así puedes comprobar en qué se acerca y dónde se equivoca. La IA no aprendió de pacientes ni de historias clínicas.</p>
+        </section>
+        <p class="ai-intro">El caso activo es <strong id="ai-scenario-name"></strong>. Las tres comparaciones aparecerán en orden.</p>
+        <div id="rf-comparisons" class="rf-comparisons" aria-label="Estimaciones de la IA comparadas con los resultados exactos"></div>
+        <p id="rf-summary" class="result-explanation" aria-live="polite"></p>
+        <p class="small-note">Una salida de 0,16 periodos es una media matemática de una regresión, no una probabilidad ni un número de etapas. Un error relativo frente a un valor exacto de cero no está definido.</p>
+        <p class="transition-line">Has comparado una aproximación con su referencia. Cierra el recorrido con lo que realmente aprendiste.</p>
+        <details class="scientific-note">
+          <summary>La explicación científica</summary>
+          <div class="scientific-body">
+            <p>RF v0.2 es un Random Forest de regresión con 160 árboles, entrenado con escenarios sintéticos etiquetados por el motor exacto. Las predicciones incluidas aquí ya estaban calculadas y se copian del JSON congelado; esta versión no ajusta ni reentrena el modelo.</p>
+            <p>Se comparan remanente final, pico de actividad equivalente y periodos con recuperación limitada. El error absoluto es |predicción − valor exacto|. El error relativo es |predicción − exacto| / |exacto| y queda como no definido cuando el exacto es cero.</p>
+            <p>El modelo aproxima el simulador dentro de un espacio sintético; no predice demanda clínica, cáncer, pacientes o actividad observada. Una coincidencia en estos tres casos no demuestra precisión general.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="chapter reveal" id="capitulo-10" aria-labelledby="h-ch10">
+      <div class="chapter-number" aria-hidden="true">10</div>
+      <div class="chapter-content">
+        <p class="eyebrow">Lo que te llevas</p>
+        <h2 id="h-ch10">Acabas de recorrer una investigación con CRABI.</h2>
+        <section class="plain-language" aria-label="En pocas palabras">
+          <p class="layer-label">En pocas palabras</p>
+          <p>Elegiste un grupo a partir de un dato oficial, separaste ese dato de las condiciones que inventaste para el ejercicio, simulaste una reducción, seguiste lo pendiente y comparaste tres casos.</p>
+          <p>También viste que una IA puede aproximar el cálculo, pero que su respuesta debe compararse con un resultado exacto. La pregunta importante no es solo “¿qué número salió?”, sino “¿de dónde salió y qué significa?”.</p>
+          <p>CRABI puede servir para explorar preguntas de investigación y hacer visibles las consecuencias de distintos supuestos. El siguiente paso sería revisar cada pregunta con datos adecuados y equipos especialistas.</p>
+        </section>
+        <ol class="learning-path" aria-label="Pasos del recorrido completado">
+          <li>Dato</li><li>Decisión</li><li>Supuesto</li><li>Simulación</li><li>Comprobación</li>
+        </ol>
+        <blockquote>Investigar no consiste solo en obtener un número: también consiste en saber de dónde viene, qué significa y hasta dónde puedes confiar en él.</blockquote>
+        <p class="final-limit">Este prototipo no es una herramienta clínica, no establece elegibilidad individual y no recomienda un calendario.</p>
+        <a class="back-to-top" href="#inicio">Volver al comienzo ↑</a>
+        <details class="scientific-note">
+          <summary>La explicación científica</summary>
+          <div class="scientific-body">
+            <p>La experiencia combina una fuente demográfica provisional, una regla territorial documentada como contexto, supuestos hipotéticos declarados, salidas deterministas H-01 y predicciones precomputadas RF v0.2. Sus resultados son condicionales a esos elementos y no permiten inferir causalidad ni generalizar sobre actividad sanitaria real.</p>
+            <p>La trazabilidad del prototipo se conserva en <code>datos/caso_jurado_v1.json</code> y su bundle JavaScript local generado. La guía y los informes de validación documentan procedencia, límites y pruebas.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="page-footer">
+    <p>CRABI — Laboratorio de simulación epidemiológica · DATAMAD 2026</p>
+    <p id="footer-note">Prototipo educativo independiente · resultados hipotéticos</p>
+  </footer>
+  <noscript><p class="noscript-note">Este recorrido necesita JavaScript local para cargar los datos congelados y actualizar los escenarios.</p></noscript>
+</body>
+</html>
