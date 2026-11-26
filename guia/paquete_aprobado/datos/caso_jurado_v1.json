@@ -1,0 +1,398 @@
+{
+  "schemaVersion": "1.0.0",
+  "frozenOn": "2026-11-25",
+  "purpose": "Experiencia educativa de simulación hipotética; no representa actividad sanitaria observada.",
+  "units": {
+    "population": "personas residentes (agregado demográfico)",
+    "activity": "unidades equivalentes hipotéticas de invitación por periodo",
+    "recovery": "unidades equivalentes hipotéticas recuperadas por periodo",
+    "pending": "unidades equivalentes hipotéticas pendientes al cierre del periodo",
+    "capacity": "unidades equivalentes hipotéticas máximas por periodo"
+  },
+  "population": {
+    "territoryCode": "13",
+    "territory": "Comunidad de Madrid",
+    "sex": "Mujeres residentes",
+    "ageMin": 50,
+    "ageMax": 69,
+    "residents": 1038983,
+    "referenceDate": "1 de octubre de 2026",
+    "status": "provisional",
+    "aggregation": "Suma de edad simple 50–69, inclusive, desde el bundle de CRABI.",
+    "source": "https://www.ine.es/jaxiT3/Tabla.htm?L=0&t=59238",
+    "releaseSource": "https://www.ine.es/dyngs/Prensa/ECP3T26.htm",
+    "bundleSha256": "8ae5150d973584c22c986003f53ea10d825001778c14139bb5f0fe076152b059"
+  },
+  "assumptions": {
+    "inclusionFraction": 0.5,
+    "participationContextOnly": 0.6,
+    "participationAppliedToModel": false,
+    "referenceActivityTotal": 519492,
+    "horizonPeriods": 6,
+    "referencePerPeriod": 86582,
+    "inclusionRounding": "Math.round(residentes × fracción hipotética incluida)",
+    "dropFraction": 0.3,
+    "startPeriod": 2,
+    "durationPeriods": 2,
+    "perturbationVisiblePeriods": [
+      2,
+      3
+    ],
+    "timingConvention": "La pérdida se incorpora al cierre del periodo afectado; la recuperación de esa pérdida puede empezar en el periodo siguiente.",
+    "capacityMeaning": "Techo matemático hipotético de actividad alternativa equivalente por periodo; no es capacidad sanitaria medida."
+  },
+  "institutionalContext": [
+    {
+      "id": "iis",
+      "label": "Institutos de Investigación Biomédica o Sanitaria acreditados",
+      "value": 36,
+      "qualifier": "acreditados",
+      "detail": "en 13 comunidades autónomas; el ISCIII informa de más de 31.000 personas investigadoras adscritas en 380 centros",
+      "referencePeriod": "consulta de fuente institucional: 2026-11-25",
+      "source": "https://www.isciii.es/institutos-investigacion-sanitaria-presentacion"
+    },
+    {
+      "id": "madrid-iis-2024",
+      "label": "IIS acreditados en la Comunidad de Madrid",
+      "value": 8,
+      "qualifier": "IIS",
+      "detail": "el informe anual del ISCIII identifica ocho en Madrid en 2024; es una cifra histórica de ese ejercicio, no un recuento actualizado a 2026",
+      "referencePeriod": "2024",
+      "source": "https://transparencia.isciii.es/documents/40806/4639de59-5691-1bdf-f5e2-a5ed0b6efcdb"
+    },
+    {
+      "id": "ciber",
+      "label": "Grupos de pleno derecho del Consorcio CIBER",
+      "value": 506,
+      "qualifier": "grupos",
+      "detail": "en 104 instituciones consorciadas y 16 comunidades autónomas; cuentas del ejercicio 2025",
+      "referencePeriod": "2025",
+      "source": "https://www.ciberisciii.es/media/3398218/ccaa-ciber-2025-aprobadas-e-informe-de-auditoria.pdf"
+    }
+  ],
+  "territorialRule": {
+    "name": "DEPRECAM",
+    "ageRange": "50–69 años",
+    "interval": "mamografía de cribado cada dos años",
+    "eligibilityNote": "La página regional especifica además residencia, ausencia de síntomas y criterios de inclusión; la edad sola no determina elegibilidad individual.",
+    "source": "https://www.comunidad.madrid/salud/deteccion-precoz-cancer-mama",
+    "consultedOn": "2026-11-25",
+    "publicationDate": null,
+    "publicationDateNote": "No se identificó una fecha de publicación visible en la página consultada."
+  },
+  "model": {
+    "exact": "Motor contrafactual H-01, salida determinista del escenario fijado.",
+    "randomForest": "RF v0.2; predicciones precomputadas, sin entrenamiento en esta fase.",
+    "trainingData": "Ejemplos sintéticos generados y etiquetados por el motor exacto; no historias clínicas ni pacientes.",
+    "targets": [
+      "remanente final",
+      "pico de actividad equivalente",
+      "periodos con recuperación limitada"
+    ],
+    "predictionsNotProbabilities": "La salida de periodos limitados del RF es una media de regresión continua; no es una probabilidad ni un conteo exacto.",
+    "candidateArtifactSha256": {
+      "integratedAi": "4183DF82D6359B4D2D82E6A42083B070385E52854C0728815F79DDC019682ACC",
+      "rfPredictor": "E799D15C15E38DA5A6BD9E849BBA7404E4CCEB57773BE6C3CFF7F327AEDB338F",
+      "portableModel": "D16B7C81BFC7EF360810243025DDD102BCBD3848DCC205569D95D88290356ED1"
+    }
+  },
+  "scenarios": [
+    {
+      "id": "A",
+      "scenarioId": "MAD_50_69_D30_P2x2_H6_C125_UNIFORM",
+      "title": "Recuperación completa",
+      "capacityRatio": 1.25,
+      "strategy": "uniform",
+      "capacityPerPeriod": 108228,
+      "exact": {
+        "generatedPending": 51948,
+        "recoveredTotal": 51948,
+        "finalRemainder": 0,
+        "peakActivity": 101734,
+        "capacityLimitedPeriods": 0,
+        "periods": [
+          {
+            "period": 1,
+            "reference": 86582,
+            "lossGenerated": 0,
+            "plannedRecovery": 0,
+            "capacityCarryIn": 0,
+            "recoveryEffective": 0,
+            "alternativeActivity": 86582,
+            "pendingAtEnd": 0,
+            "capacity": 108228
+          },
+          {
+            "period": 2,
+            "reference": 86582,
+            "lossGenerated": 25974,
+            "plannedRecovery": 0,
+            "capacityCarryIn": 0,
+            "recoveryEffective": 0,
+            "alternativeActivity": 60608,
+            "pendingAtEnd": 25974,
+            "capacity": 108228
+          },
+          {
+            "period": 3,
+            "reference": 86582,
+            "lossGenerated": 25974,
+            "plannedRecovery": 6494,
+            "capacityCarryIn": 0,
+            "recoveryEffective": 6494,
+            "alternativeActivity": 67102,
+            "pendingAtEnd": 45454,
+            "capacity": 108228
+          },
+          {
+            "period": 4,
+            "reference": 86582,
+            "lossGenerated": 0,
+            "plannedRecovery": 15152,
+            "capacityCarryIn": 0,
+            "recoveryEffective": 15152,
+            "alternativeActivity": 101734,
+            "pendingAtEnd": 30302,
+            "capacity": 108228
+          },
+          {
+            "period": 5,
+            "reference": 86582,
+            "lossGenerated": 0,
+            "plannedRecovery": 15151,
+            "capacityCarryIn": 0,
+            "recoveryEffective": 15151,
+            "alternativeActivity": 101733,
+            "pendingAtEnd": 15151,
+            "capacity": 108228
+          },
+          {
+            "period": 6,
+            "reference": 86582,
+            "lossGenerated": 0,
+            "plannedRecovery": 15151,
+            "capacityCarryIn": 0,
+            "recoveryEffective": 15151,
+            "alternativeActivity": 101733,
+            "pendingAtEnd": 0,
+            "capacity": 108228
+          }
+        ]
+      },
+      "rfV02": {
+        "remainderMean": 4609.375,
+        "remainderAbsoluteError": 4609.375,
+        "remainderRelativeError": null,
+        "remainderErrorFractionOfReferenceTotal": 0.008872850784997652,
+        "peakMean": 101734.8125,
+        "peakAbsoluteError": 0.8125,
+        "peakRelativeError": 7.98651384984371e-06,
+        "limitedPeriodsMean": 0.15625,
+        "limitedPeriodsAbsoluteError": 0.15625,
+        "limitedPeriodsRelativeError": null,
+        "limitedPeriodsErrorFractionOfHorizon": 0.026041666666666668,
+        "insideIidDomain": true
+      }
+    },
+    {
+      "id": "B",
+      "scenarioId": "MAD_50_69_D30_P2x2_H6_C115_UNIFORM",
+      "title": "Capacidad más limitada",
+      "capacityRatio": 1.15,
+      "strategy": "uniform",
+      "capacityPerPeriod": 99570,
+      "exact": {
+        "generatedPending": 51948,
+        "recoveredTotal": 45458,
+        "finalRemainder": 6490,
+        "peakActivity": 99570,
+        "capacityLimitedPeriods": 3,
+        "periods": [
+          {
+            "period": 1,
+            "reference": 86582,
+            "lossGenerated": 0,
+            "plannedRecovery": 0,
+            "capacityCarryIn": 0,
+            "recoveryEffective": 0,
+            "alternativeActivity": 86582,
+            "pendingAtEnd": 0,
+            "capacity": 99570
+          },
+          {
+            "period": 2,
+            "reference": 86582,
+            "lossGenerated": 25974,
+            "plannedRecovery": 0,
+            "capacityCarryIn": 0,
+            "recoveryEffective": 0,
+            "alternativeActivity": 60608,
+            "pendingAtEnd": 25974,
+            "capacity": 99570
+          },
+          {
+            "period": 3,
+            "reference": 86582,
+            "lossGenerated": 25974,
+            "plannedRecovery": 6494,
+            "capacityCarryIn": 0,
+            "recoveryEffective": 6494,
+            "alternativeActivity": 67102,
+            "pendingAtEnd": 45454,
+            "capacity": 99570
+          },
+          {
+            "period": 4,
+            "reference": 86582,
+            "lossGenerated": 0,
+            "plannedRecovery": 15152,
+            "capacityCarryIn": 0,
+            "recoveryEffective": 12988,
+            "alternativeActivity": 99570,
+            "pendingAtEnd": 32466,
+            "capacity": 99570
+          },
+          {
+            "period": 5,
+            "reference": 86582,
+            "lossGenerated": 0,
+            "plannedRecovery": 15151,
+            "capacityCarryIn": 2164,
+            "recoveryEffective": 12988,
+            "alternativeActivity": 99570,
+            "pendingAtEnd": 19478,
+            "capacity": 99570
+          },
+          {
+            "period": 6,
+            "reference": 86582,
+            "lossGenerated": 0,
+            "plannedRecovery": 15151,
+            "capacityCarryIn": 4327,
+            "recoveryEffective": 12988,
+            "alternativeActivity": 99570,
+            "pendingAtEnd": 6490,
+            "capacity": 99570
+          }
+        ]
+      },
+      "rfV02": {
+        "remainderMean": 8781.8625,
+        "remainderAbsoluteError": 2291.8624999999993,
+        "remainderRelativeError": 0.3531375192604005,
+        "remainderErrorFractionOfReferenceTotal": 0.0044117378130943295,
+        "peakMean": 89998.4375,
+        "peakAbsoluteError": 9571.5625,
+        "peakRelativeError": 0.09612897961233303,
+        "limitedPeriodsMean": 0.2375,
+        "limitedPeriodsAbsoluteError": 2.7625,
+        "limitedPeriodsRelativeError": 0.9208333333333334,
+        "limitedPeriodsErrorFractionOfHorizon": 0.4604166666666667,
+        "insideIidDomain": true
+      }
+    },
+    {
+      "id": "C",
+      "scenarioId": "MAD_50_69_D30_P2x2_H6_C125_GRADUAL",
+      "title": "Recuperación gradual",
+      "capacityRatio": 1.25,
+      "strategy": "gradual",
+      "capacityPerPeriod": 108228,
+      "exact": {
+        "generatedPending": 51948,
+        "recoveredTotal": 50217,
+        "finalRemainder": 1731,
+        "peakActivity": 108228,
+        "capacityLimitedPeriods": 1,
+        "periods": [
+          {
+            "period": 1,
+            "reference": 86582,
+            "lossGenerated": 0,
+            "plannedRecovery": 0,
+            "capacityCarryIn": 0,
+            "recoveryEffective": 0,
+            "alternativeActivity": 86582,
+            "pendingAtEnd": 0,
+            "capacity": 108228
+          },
+          {
+            "period": 2,
+            "reference": 86582,
+            "lossGenerated": 25974,
+            "plannedRecovery": 0,
+            "capacityCarryIn": 0,
+            "recoveryEffective": 0,
+            "alternativeActivity": 60608,
+            "pendingAtEnd": 25974,
+            "capacity": 108228
+          },
+          {
+            "period": 3,
+            "reference": 86582,
+            "lossGenerated": 25974,
+            "plannedRecovery": 2597,
+            "capacityCarryIn": 0,
+            "recoveryEffective": 2597,
+            "alternativeActivity": 63205,
+            "pendingAtEnd": 49351,
+            "capacity": 108228
+          },
+          {
+            "period": 4,
+            "reference": 86582,
+            "lossGenerated": 0,
+            "plannedRecovery": 9524,
+            "capacityCarryIn": 0,
+            "recoveryEffective": 9524,
+            "alternativeActivity": 96106,
+            "pendingAtEnd": 39827,
+            "capacity": 108228
+          },
+          {
+            "period": 5,
+            "reference": 86582,
+            "lossGenerated": 0,
+            "plannedRecovery": 16450,
+            "capacityCarryIn": 0,
+            "recoveryEffective": 16450,
+            "alternativeActivity": 103032,
+            "pendingAtEnd": 23377,
+            "capacity": 108228
+          },
+          {
+            "period": 6,
+            "reference": 86582,
+            "lossGenerated": 0,
+            "plannedRecovery": 23377,
+            "capacityCarryIn": 0,
+            "recoveryEffective": 21646,
+            "alternativeActivity": 108228,
+            "pendingAtEnd": 1731,
+            "capacity": 108228
+          }
+        ]
+      },
+      "rfV02": {
+        "remainderMean": 4391.90625,
+        "remainderAbsoluteError": 2660.90625,
+        "remainderRelativeError": 1.5372075389948008,
+        "remainderErrorFractionOfReferenceTotal": 0.00512213133214756,
+        "peakMean": 101630.34375,
+        "peakAbsoluteError": 6597.65625,
+        "peakRelativeError": 0.06096071487969842,
+        "limitedPeriodsMean": 0.15,
+        "limitedPeriodsAbsoluteError": 0.85,
+        "limitedPeriodsRelativeError": 0.85,
+        "limitedPeriodsErrorFractionOfHorizon": 0.14166666666666666,
+        "insideIidDomain": true
+      }
+    }
+  ],
+  "sourceFiles": {
+    "MATRIZ_ESCENARIOS_CANDIDATOS.csv": "29a5702065833faafcb6b0edfaafde95157832f1167e1863f70e2050b15075cb",
+    "RESULTADOS_MOTOR_EXACTO.csv": "193ddb7eced3670e0c15f544400ccced75f2e911c8626f340f3d037fa748010b",
+    "PREDICCIONES_RF_V02.csv": "dce1386d37709b9cebe70299e617638fea789b1e811dc8d724dd508d0d420605",
+    "CRABI_V04_CABECERAS_ARTISTICAS_DATAMAD/data.js": "8ae5150d973584c22c986003f53ea10d825001778c14139bb5f0fe076152b059"
+  }
+}

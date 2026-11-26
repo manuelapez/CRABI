@@ -1,9 +1,0 @@
-# Evidencia territorial
-
-`reglas_cribado_2026-11.csv` contiene una fila por comunidad autónoma y ciudad autónoma. Separa el último rango general localizado (`edad_min_general`/`edad_max_general`) del rango habilitado para suma demográfica (`edad_min_escenario`/`edad_max_escenario`). El panel solo consume el segundo y solo si `uso_escenario=si`. Las edades anunciadas, las cohortes confirmadas y los periodos de vigencia se registran aparte; un anuncio no se usa como una regla efectiva. La tabla incluye periodicidad, restricciones conocidas, fecha de fuente, nivel de evidencia y enlaces separados para regla, periodicidad y cohortes. Los campos vacíos significan que no se verificó información con la evidencia consultada, no que el territorio carezca de programa.
-
-La fecha de corte es 22/11/2026. Consulta la [validación por territorio](../VALIDACION_TERRITORIAL_CRABI.md) y el [informe de investigación](../INVESTIGACION_TERRITORIAL_CRIBADO_ESPANA.md) antes de interpretar o actualizar los valores. Al corte se habilitan 15 reglas como referencias poblacionales; Andalucía, Aragón, Navarra y Ceuta quedan bloqueadas. Illes Balears se habilita con cautela, porque una nota reciente declara 45–74 como actual, pero no especifica cohortes y la ficha general anterior aún indica 50–69.
-
-Los códigos `01`–`19` son claves internas de CRABI alineadas con el orden de territorios usado por el archivo demográfico del proyecto; no se presentan como códigos estadísticos oficiales.
-
-La fuente de población para el escenario es el extracto agregado INE por edad simple, mujeres residentes de 40–79 años con referencia 1/10/2026 provisional. El panel suma el tramo etario de referencia por territorio. No contiene datos personales, clínicos, de elegibilidad ni de participación observada. Las fuentes enlazadas siguen siendo propiedad de sus emisores. Esta compilación no incluye el CSV de resultados de Red 2023 ni materiales ASPB/COVID.
